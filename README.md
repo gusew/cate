@@ -1,2 +1,2 @@
-# cate
+# CATE
 Classification Algorithms Testing Environment
