@@ -1,0 +1,1 @@
+../mpn/x86_64/coreisbr/aorsmul_1.asm

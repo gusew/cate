@@ -1,0 +1,247 @@
+libunittest (5.0.2) stable; urgency=low
+
+  * Better build on MacOSX with proper versioning for *.dylib
+  * Improved documentation
+    
+ -- Christian Blume <chr.blume@gmail.com>  Thu, 06 May 2014 21:00:00 -0700
+
+libunittest (5.0.1) stable; urgency=low
+
+  * Fixed build on MacOSX
+  * Made clang++ the default compiler on MacOSX including
+    corresponding compiler flags
+  * Cleaner makefiles for tests and examples
+    
+ -- Christian Blume <chr.blume@gmail.com>  Mon, 28 Apr 2014 21:00:00 -0700
+
+libunittest (5.0.0) stable; urgency=low
+
+  * Moved assertions out of unittest::testcase and into their own namespace:
+    unittest::assertions. In order to migrate existing code, add this
+    to the top of your source file: using namespace unittest::assertions.
+  * Moved fail() method out of unittest::testcase. Migrate existing code
+    by adding: using unittest::fail.
+  * Added two new command line options (-l, -r) to control display behavior
+  * Removed the ability to override display controlling formatting methods 
+    -> use command line switches instead
+    
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 27 Apr 2014 22:00:00 -0700
+
+libunittest (4.0.0) stable; urgency=low
+
+  * Improved installation and correct use of soname and realname
+  * From now on the versioning follows the ABI compatibility scheme
+
+ -- Christian Blume <chr.blume@gmail.com>  Thu, 24 Apr 2014 22:00:00 -0700
+
+libunittest (3.7.10) stable; urgency=low
+
+  * Ensured explicit namespacing in header files to avoid any 
+    possible name mangling
+
+ -- Christian Blume <chr.blume@gmail.com>  Wed, 16 Apr 2014 22:00:00 -0700
+
+libunittest (3.7.9) stable; urgency=low
+
+  * fixed bug in container comparison 
+  * a few internal enhancements
+
+ -- Christian Blume <chr.blume@gmail.com>  Tue, 15 Apr 2014 20:00:00 -0700
+
+libunittest (3.7.8) stable; urgency=low
+
+  * fixed failure messages
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 23 Mar 2014 12:00:00 -0700
+
+libunittest (3.7.7) stable; urgency=low
+
+  * ensured thread safety of random classes
+  * improved failure messages
+
+ -- Christian Blume <chr.blume@gmail.com>  Thu, 20 Mar 2014 21:00:00 -0700
+ 
+libunittest (3.7.6) stable; urgency=low
+
+  * added explicit file and line information to failure report and XML
+  * improved failure messages
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 16 Mar 2014 22:00:00 -0700
+ 
+libunittest (3.7.5) stable; urgency=low
+
+  * ensured that std::this_thread is available
+  * better code documentation
+
+ -- Christian Blume <chr.blume@gmail.com>  Sat, 15 Mar 2014 16:00:00 -0700
+ 
+libunittest (3.7.4) stable; urgency=low
+
+  * ensured compatibility with g++ >= 4.6
+  * removed optimization -O2 from Makefile and added -g
+  * no functional changes
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 09 Mar 2014 23:00:00 -0700
+
+libunittest (3.7.3) stable; urgency=low
+
+  * fixed bug: failure stop didn't work correctly, now it does 
+  * added duration of each test to standard out
+  * added the main function to libunittest/main.hpp. Hence, no need
+    for an explicit main function anymore when including this header
+  * added convenience header libunittest/all.hpp which includes
+    libunittest/main.hpp and libunittest/shortcuts.hpp
+  * improved command line help
+  * add command line switch '-i' which let's you disable timeout measurements
+  * changed the displayed test names for easier debugging and the
+    setting of break points
+  * ensured faster compilation of test runs
+  * adjusted examples and documentation
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 03 Mar 2014 22:00:00 -0700
+
+libunittest (3.7.2) stable; urgency=low
+
+  * no functional changes
+  * more unit tests added to the test suite
+  * some code refactoring to increase maintainability
+
+ -- Christian Blume <chr.blume@gmail.com>  Tue, 11 Feb 2014 21:00:00 +0100
+
+libunittest (3.7.1) stable; urgency=low
+
+  * added option to skip tests including a message saying why the 
+    skip is necessary (see examples and libunittest/shortcuts.hpp)
+  * added the libunittest XSD to doc/web and to the libunittest website;
+    it is JUnit compatible and can be parsed by e.g. Jenkins
+  * Bug fixed: Number of timeouts are now logged correctly
+  * Added general removal of white spaces in test names (important for
+    templated tests)   
+  * Added systematic integration tests for all libunittest macros
+  * Added assertions to the test suite of libunittest for the total number 
+    of tests, skips, and timeouts  
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 9 Feb 2014 15:00:00 +0100
+
+libunittest (3.7.0) stable; urgency=low
+
+  * adjusted code to compile with Visual C++ 2013 (Thanks to Jarle Aase 
+    and Richard Vock for their contributions)
+  * renamed macro UNITTEST_LOGTEXT to UNITTEST_TESTINFO for reasons of
+    consistency. Hence, shortcut macro LOGTEXT also becomes TESTINFO.
+  * improved tutorial and installation instructions
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 2 Feb 2014 12:00:00 +0100
+
+libunittest (3.6.1) stable; urgency=low
+
+  * added functionality for random_tuple and random_pair (many thanks to 
+    Richard Vock for providing his implementation)
+  * safer and cleaner implementation of unittest::internals::to_number()
+    resolving issues with clang++ 
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 12 Jan 2014 14:00:00 +0100
+
+libunittest (3.6.0) stable; urgency=low
+
+  * removed 'has_timed_out' as an XML attribute of tag 'testcase'
+  * added new attribute 'assertions' to tag 'testcase' which is filled
+    with the assertion that triggered the failed test
+  * only those attributes of tag 'testcase' are displayed that are provided
+    with information, e.g., classname doesn't show up if there is no class name
+  * tests that were skipped didn't show up in the output XML. Now they do
+    and are marked with the empty tag 'skipped'
+  * added macro UNITTEST_LOGTEXT (or shortcut LOGTEXT) which can be used
+    to provide further information about the current test -> see examples
+  * all info passed to LOGTEXT is forwarded to stdout in case of errors
+    or failures
+  * all info passed to LOGTEXT is forwarded to the output XML and 
+    appears under the new tag 'system-out'
+  * unittest::deps had the wrong type -> changed it to double
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 08 Dec 2013 22:00:00 +0100
+
+libunittest (3.5.8) stable; urgency=low
+
+  * fixed an issue with tests that timed out
+  * better handling of command line arguments
+  * better wording in code and documentation    
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 01 Dec 2013 17:40:00 +0100
+
+libunittest (3.5.7) stable; urgency=low
+
+  * refactored the testrun module and ensured that exceptions are caught
+    that may be thrown in test set-up or tear-down   
+
+ -- Christian Blume <chr.blume@gmail.com>  Sat, 30 Nov 2013 17:40:00 +0100
+
+libunittest (3.5.6) stable; urgency=low
+
+  * added lock guards to where ever output streams are used   
+  * more unit tests
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 10 Nov 2013 17:15:00 +0100
+
+libunittest (3.5.5) stable; urgency=low
+
+  * some refactoring to increase maintainability
+  * more unit tests
+  * better documentation 
+
+ -- Christian Blume <chr.blume@gmail.com>  Sat, 09 Nov 2013 11:50:00 +0100
+
+libunittest (3.5.4) unstable; urgency=low
+
+  * improved handling of tests that timed out
+  * added support for test templates
+  * added REGISTER to the macro shortcuts 
+
+ -- Christian Blume <chr.blume@gmail.com>  Tue, 05 Nov 2013 22:05:02 +0100
+
+libunittest (3.5.3) unstable; urgency=low
+
+  * some minor code refactoring
+  * more and improved unit tests  
+  * improved html documentation
+  * switched to standard fonts in html doc
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 20 Oct 2013 22:05:02 +0100
+
+libunittest (3.5.2) unstable; urgency=low
+
+  * improved test application help message
+  * fixed the failing collection example
+  * improved html documentation
+
+ -- Christian Blume <chr.blume@gmail.com>  Tue, 15 Oct 2013 22:05:02 +0100
+
+libunittest (3.5.1) unstable; urgency=low
+
+  * added new macros: UNITTEST_TEST, UNITTEST_TEST_FIXTURE, UNITTEST_TEST_TIME, 
+    UNITTEST_TEST_FIXTURE_TIME, and UNITTEST_COLLECTION and adjusted
+    examples accordingly
+  * added libunittest/shortcuts.hpp of shorter aliases for the macros above
+  * improved documentation and web doc
+
+ -- Christian Blume <chr.blume@gmail.com>  Sat, 12 Oct 2013 22:05:02 +0100
+
+libunittest (3.5.0) unstable; urgency=low
+
+  * removed the need to explicitly register test classes. This is now done by
+    calling the macro UNITTEST_REGISTER(test_class). Please check the examples
+  * added command line option '-p number' which let's you set the number
+    of threads for the parallel execution of all registered test cases
+  * introduced two new namespaces under unittest: 1) internals, for internal
+    funcionality that is not relevant to most users 2) strings, a collection
+    of strings useful for testing
+  * added a complete web documentation under doc/web.index.html whose latest
+    version is online at http://libunittest.sourceforge.net
+
+ -- Christian Blume <chr.blume@gmail.com>  Sun, 06 Oct 2013 22:05:02 +0100
+
+libunittest (3.4.1) unstable; urgency=low
+
+  * initial package
+
+ -- Christian Blume <chr.blume@gmail.com>  Wed, 18 Sep 2013 22:05:02 +0100

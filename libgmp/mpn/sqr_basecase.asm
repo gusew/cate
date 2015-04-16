@@ -1,0 +1,1 @@
+../mpn/x86_64/coreisbr/sqr_basecase.asm
