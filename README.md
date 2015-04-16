@@ -3,15 +3,24 @@ CATE is a framework for consistently and reproducibly extracting the key perform
 
 ## Quick Start Guide
 1. Clone CATE.
-  $ git clone https://github.com/gusew/cate.git
+
+        $ git clone https://github.com/gusew/cate.git
+  
 2. Move into the CATE directory.
-  $ cd cate/
+
+        $ cd cate/
+  
 3. Build CATE and dependencies.
-  $ make
+
+        $ make
+  
 4. Create a directory for output results.
-  $ mkdir results 
+
+        $ mkdir results 
+  
 5. Run CATE with an example benchmark suite (1,000 rules and all algorithms).
-  $ ./build/cate examples/all-acl1-1K.lua results/
+
+        $ ./build/cate examples/all-acl1-1K.lua results/
 
 
 ## Implementations of Classification Algorithms
