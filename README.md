@@ -2,13 +2,24 @@
 CATE is a framework for consistently and reproducibly extracting the key performance characteristics of classification algorithms, such as memory footprint and matching speed. Classification algorithms are utilized in network packet classification which is an essential part of varios services of today's packet-switched networks, like, for instance, firewalling, policy routing, intrusion detection, and traffic rate limiting.
 
 ## Quick Start Guide
+1. Clone CATE.
+  $ git clone https://github.com/gusew/cate.git
+2. Move into the CATE directory.
+  $ cd cate/
+3. Build CATE and dependencies.
+  $ make
+4. Create a directory for output results.
+  $ mkdir results 
+5. Run CATE with an example benchmark suite (1,000 rules and all algorithms).
+  $ ./build/cate examples/all-acl1-1K.lua results/
+
 
 ## Implementations of Classification Algorithms
 Currently, the following algorithms are implemented for the CATE framework:
 * Linear Search
-* Bit vector Search
-* Hierarchical Intelligent Cuttings (HiCuts)
-* Tuple Space Search
+* [Bit Vector Search](http://conferences.sigcomm.org/sigcomm/1998/tp/paper17.pdf)
+* [Hierarchical Intelligent Cuttings](http://tiny-tera.stanford.edu/~nickm/papers/HOTI_99.pdf) (HiCuts)
+* [Tuple Space Search](http://cseweb.ucsd.edu/~varghese/PAPERS/Sigcomm99.pdf)
 
 ## Dependencies 
 CATE has three dependencies which are included in this repository and which are automatically build by using the main makefile. These libraries are
