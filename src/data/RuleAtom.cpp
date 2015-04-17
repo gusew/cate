@@ -4,13 +4,13 @@ void Generic::RuleAtomRange::toPrefixes(std::vector<std::tuple<VarValue, VarValu
 
   VarValue r_min = minValue;
   VarValue r_max = maxValue;
-  
-  while (r_min <= r_max) {
+
+  while (r_min <= r_max) { 
     for (unsigned int i = 0; i < (width+1); ++i) {
-      const VarValue pot = 1 << (i + 1);
+      const VarValue pot = (VarValue)1 << (i + 1);
       if (((r_min % pot) != 0) || ((r_min + pot - 1) > r_max)) {
         result.push_back(std::make_pair(r_min, (width-i)));
-        r_min = r_min + (1 << i);
+        r_min += (VarValue)1 << i;
         break;
       }
     }

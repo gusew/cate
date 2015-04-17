@@ -319,8 +319,102 @@ TEST(test_algtuplespace_5tpl_classify_big)
   AlgTestFixtures::evalIndicesSet1024(indices);
 }
 
+TEST_TIME(test_algtuplespace_5tpl_convert, 5)
+{
+  MemChronoSetup setup;
+  AlgTestFixtures::setupMemChrono(setup);
 
-TEST(test_algtuplespace_5tpl_ruleadd_empty)
+  using namespace Generic;
+
+  RuleSet ruleset;
+
+  std::unique_ptr<Rule> rule1(new Rule);
+  std::unique_ptr<RuleAtom> atom11(new RuleAtomRange((uint32_t)0, (uint32_t)0x3FFFFFFF));
+  std::unique_ptr<RuleAtom> atom12(new RuleAtomPrefix((uint32_t)0, (uint32_t)0));
+  std::unique_ptr<RuleAtom> atom13(new RuleAtomPrefix((uint16_t)0, (uint16_t)0));
+  std::unique_ptr<RuleAtom> atom14(new RuleAtomRange((uint16_t)0, (uint16_t)0xFFFF));
+  std::unique_ptr<RuleAtom> atom15(new RuleAtomRange((uint8_t)0, (uint8_t)255));
+  rule1->push_back(std::move(atom11));
+  rule1->push_back(std::move(atom12));
+  rule1->push_back(std::move(atom13));
+  rule1->push_back(std::move(atom14));
+  rule1->push_back(std::move(atom15));
+
+  ruleset.push_back(std::move(rule1));
+
+  std::unique_ptr<Rule> rule2(new Rule);
+  std::unique_ptr<RuleAtom> atom21(new RuleAtomRange((uint32_t)0, (uint32_t)0x6FFFFFFF));
+  std::unique_ptr<RuleAtom> atom22(new RuleAtomRange((uint32_t)0, (uint32_t)0x7FFFFFFF));
+  std::unique_ptr<RuleAtom> atom23(new RuleAtomPrefix((uint16_t)0, (uint16_t)0));
+  std::unique_ptr<RuleAtom> atom24(new RuleAtomRange((uint16_t)0, (uint16_t)0xFFFF));
+  std::unique_ptr<RuleAtom> atom25(new RuleAtomRange((uint8_t)0, (uint8_t)255));
+  rule2->push_back(std::move(atom21));
+  rule2->push_back(std::move(atom22));
+  rule2->push_back(std::move(atom23));
+  rule2->push_back(std::move(atom24));
+  rule2->push_back(std::move(atom25));
+
+  ruleset.push_back(std::move(rule2));
+
+
+  assert_true(ruleSetIsValid(ruleset), SPOT);
+
+  PacketHeaderSet packets;
+
+  std::unique_ptr<PacketHeaderLine> line1(new PacketHeaderLine);
+  std::unique_ptr<PacketHeaderAtom> hdratom11(new PacketHeaderAtom((uint32_t)0xC2D2777));
+  std::unique_ptr<PacketHeaderAtom> hdratom12(new PacketHeaderAtom((uint32_t)0xC2D2CCCC));
+  std::unique_ptr<PacketHeaderAtom> hdratom13(new PacketHeaderAtom((uint32_t)100));
+  std::unique_ptr<PacketHeaderAtom> hdratom14(new PacketHeaderAtom((uint32_t)80));
+  std::unique_ptr<PacketHeaderAtom> hdratom15(new PacketHeaderAtom((uint32_t)6));
+  line1->push_back(std::move(hdratom11));
+  line1->push_back(std::move(hdratom12));
+  line1->push_back(std::move(hdratom13));
+  line1->push_back(std::move(hdratom14));
+  line1->push_back(std::move(hdratom15));
+  packets.push_back(std::move(line1));
+
+  std::unique_ptr<PacketHeaderLine> line2(new PacketHeaderLine);
+  std::unique_ptr<PacketHeaderAtom> hdratom21(new PacketHeaderAtom((uint32_t)0xC2D2777));
+  std::unique_ptr<PacketHeaderAtom> hdratom22(new PacketHeaderAtom((uint32_t)0xC2D2CCCC));
+  std::unique_ptr<PacketHeaderAtom> hdratom23(new PacketHeaderAtom((uint32_t)99));
+  std::unique_ptr<PacketHeaderAtom> hdratom24(new PacketHeaderAtom((uint32_t)80));
+  std::unique_ptr<PacketHeaderAtom> hdratom25(new PacketHeaderAtom((uint32_t)6));
+  line2->push_back(std::move(hdratom21));
+  line2->push_back(std::move(hdratom22));
+  line2->push_back(std::move(hdratom23));
+  line2->push_back(std::move(hdratom24));
+  line2->push_back(std::move(hdratom25));
+  packets.push_back(std::move(line2));
+
+  assert_equal(packets.size(), (unsigned)2, SPOT);
+  
+  RuleIndexSet indices;
+  assert_true(indices.empty(), SPOT);
+
+  std::vector<double> params;
+  params.push_back(1);
+  params.push_back(100);
+
+  std::unique_ptr<TupleSpace5tpl> alg(new TupleSpace5tpl);
+  try {
+    alg->setMemManager(setup.memMgrPtr);
+    alg->setChronoManager(setup.chrMgrPtr);
+    alg->setParameters(params);
+    alg->setRules(ruleset);
+    alg->classify(packets, indices);
+  } catch (char const* ex) {
+    assert_true(false, ex, SPOT);
+  }
+ 
+  assert_equal(indices.size(), (unsigned)2, SPOT);
+  assert_equal(indices[0], (unsigned)0, SPOT);
+  assert_equal(indices[1], (unsigned)0, SPOT);
+}
+
+
+
+TEST_SKIP(test_algtuplespace_5tpl_ruleadd_empty, "currently not supported")
 {
   MemChronoSetup setup;
   AlgTestFixtures::setupMemChrono(setup);
@@ -411,7 +505,7 @@ TEST(test_algtuplespace_5tpl_ruleadd_empty)
 }
 
 
-TEST(test_algtuplespace_5tpl_ruleadd_filled)
+TEST_SKIP(test_algtuplespace_5tpl_ruleadd_filled, "currently not supported")
 {
   MemChronoSetup setup;
   AlgTestFixtures::setupMemChrono(setup);
@@ -465,7 +559,7 @@ TEST(test_algtuplespace_5tpl_ruleadd_filled)
   }
 }
 
-TEST(test_algtuplespace_5tpl_ruleremoved)
+TEST_SKIP(test_algtuplespace_5tpl_ruleremoved, "currently not supported")
 {
   MemChronoSetup setup;
   AlgTestFixtures::setupMemChrono(setup);

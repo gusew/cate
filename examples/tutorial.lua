@@ -41,13 +41,13 @@ addRuleToRuleset(rs, {
 	ruleAtomRange(2000, 4000), -- portDest
 	ruleAtomExact(6)	-- protocol
 })
---addRuleToRuleset(rs, { 
---	ruleAtomRange(ipv4Toi("10.0.0.18"), ipv4Toi("10.0.0.22")),
---	ruleAtomPrefix(ipv4Toi("10.10.100.0"), maskToi(24, 32)), 
---	ruleAtomPrefix(0, maskToi(0)),
---	ruleAtomRange(1, 0xFFFF),
---	ruleAtomExact(6)
---})
+addRuleToRuleset(rs, { 
+	ruleAtomRange(ipv4Toi("10.0.0.18"), ipv4Toi("10.0.0.22")),
+	ruleAtomPrefix(ipv4Toi("10.10.100.0"), maskToi(24, 32)), 
+	ruleAtomPrefix(0, maskToi(0)),
+	ruleAtomRange(1, 0xFFFF),
+	ruleAtomExact(6)
+})
 addRuleToRuleset(rs, { 
 	ruleAtomRange(ipv4Toi("10.0.0.18"), ipv4Toi("10.0.0.22")),
 	ruleAtomPrefix(ipv4Toi("10.10.100.0"), maskToi(24, 32)),
@@ -70,8 +70,7 @@ addRuleToRuleset(rs, {
 	ruleAtomExact(6)
 })
 addRuleToRuleset(rs, { 
-	--ruleAtomRange(0, ipv4Toi("255.255.255.255")),
-	ruleAtomRange(0, 0x2FFFFFFF),
+	ruleAtomRange(0, ipv4Toi("255.255.255.255")),
 	ruleAtomPrefix(ipv4Toi("10.10.100.0"), maskToi(0, 32)),
 	ruleAtomPrefix(0, maskToi(0)),
 	ruleAtomRange(0, 0xFFFF),
