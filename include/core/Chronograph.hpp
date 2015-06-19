@@ -5,13 +5,14 @@
 #include <memory>
 #include <data/VarValue.hpp>
 
+typedef std::chrono::high_resolution_clock Chronoclock;
 /** 
  * Represents a single stopwatch for measuring the performance of a 
  * specified aspect of an algorithm's benchmark run.
  */
 class Chronograph {
   /** holds the time-point of stopwatch-start */
-  std::chrono::steady_clock::time_point _start;
+  Chronoclock::time_point _start;
 
   /** holds result time of the stopwatch in nanoseconds (multi-precision type) */
   Generic::VarValue _total;
@@ -19,7 +20,7 @@ class Chronograph {
 public:
   Chronograph() : _total(0) {}
   /** Start the stopwatch */
-  void start() { _start = std::chrono::steady_clock::now(); }
+  void start() { _start = Chronoclock::now(); }
   /** Stop the stopwatch and sum previous timespanup in total duration. */
   void stop();
 
