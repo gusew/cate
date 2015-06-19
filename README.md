@@ -2,11 +2,11 @@
 CATE is a framework for consistently and reproducibly extracting the key performance characteristics of classification algorithms, such as memory footprint and matching speed. Classification algorithms are utilized in network packet classification which is an essential part of various services of today's packet-switched networks, like, for instance, firewalling, policy routing, intrusion detection, and traffic rate limiting.
 
 ## Quick Start Guide
-1. Clone CATE.
+1. Clone CATE (or extract the zip-file).
 
         $ git clone https://github.com/gusew/cate.git
   
-2. Move into the CATE directory.
+2. Change into the CATE directory.
 
         $ cd cate/
   
@@ -30,12 +30,44 @@ Currently, the following algorithms are implemented for the CATE framework:
 * [Hierarchical Intelligent Cuttings](http://tiny-tera.stanford.edu/~nickm/papers/HOTI_99.pdf) (HiCuts)
 * [Tuple Space Search](http://cseweb.ucsd.edu/~varghese/PAPERS/Sigcomm99.pdf)
 
+
 ## Dependencies 
 CATE has three dependencies which are included in this repository and which are automatically build by using the main makefile. These libraries are
 * [Lua Interpreter](http://lua.org)
 * [The GNU Multiple Precision Arithmetic Library](https://gmplib.org)
 * A lightweight and portable [C++ unit testing library](http://libunittest.sourceforge.net)
 
+
 ## Contributing
 We cordially welcome any implementations of further classification algorithms as well as patches to the CATE framework. For patches, please start by opening a new issue describing the change you are going to make. Then, [fork](https://help.github.com/articles/fork-a-repo) the project or create a new branch where you will be working at. Finally, push the commits to your fork and submit a [pull request](https://help.github.com/articles/creating-a-pull-request). 
+
+
+## Build CATE with disabled memory metering
+Measuring the memory footprint of algorithms can be disabled with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, open the file 'makefile.vars' and uncomment in the line
+
+        CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic #$(MEMDISABLE)
+
+the '$(MEMDISABLE)' occurence. The result will look like:
+
+        CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic $(MEMDISABLE)
+        
+Then, completely rebuild the CATE framework together will all algorithms:
+
+        $ make clean
+        $ make
+
+
+## Run unit tests
+You can execute all available unit tests with the following makefile-targets:
+
+1. Test main components of the CATE framework.
+
+        $ make utest
+        
+2. Test parts of each classification algorithm.
+
+        $ make utest_linearsearch
+        $ make utest_bitvector
+        $ make utest_hicuts
+        $ make utest_tuples
 
