@@ -87,11 +87,16 @@ TEST(test_luaconfigurator_fieldstructure)
   assert_equal(cfgPtr->getBenchmarkSet()[0]->fieldStructure[3], (unsigned)5, SPOT);
 }
 
-TEST(test_luaconfigurator_rules)
+TEST(test_luaconfigurator_rules32)
 {
   std::shared_ptr<Configuration> cfgPtr = std::make_shared<Configuration>();
   LuaConfigurator configurator(cfgPtr);
   configurator.addBenchmark();
+
+  // set field structure for rules in benchmark
+  configurator.addFieldStructure(32);
+  configurator.addFieldStructure(16);
+  configurator.addFieldStructure(32);
 
   assert_true(cfgPtr->getBenchmarkSet()[0]->rules.empty(), SPOT);
   
@@ -119,11 +124,26 @@ TEST(test_luaconfigurator_rules)
   Generic::RuleAtomPrefix* atom3 = static_cast<Generic::RuleAtomPrefix*>(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(2).get());
   assert_equal(atom3->prefix, (unsigned)0xA88E3000, SPOT);
   assert_equal(atom3->mask, (unsigned)0xFFFF0000, SPOT);
+}
+
+
+TEST(test_luaconfigurator_rules64)
+{
+  std::shared_ptr<Configuration> cfgPtr = std::make_shared<Configuration>();
+  LuaConfigurator configurator(cfgPtr);
+  configurator.addBenchmark();
+
+  // set field structure for rules in benchmark
+  configurator.addFieldStructure(64);
+  configurator.addFieldStructure(64);
+  configurator.addFieldStructure(64);
+
+  assert_true(cfgPtr->getBenchmarkSet()[0]->rules.empty(), SPOT);
 
   // add second rule with 64 bit values
   configurator.addRule();
-  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules.size(), (unsigned)2, SPOT);
-  assert_true(cfgPtr->getBenchmarkSet()[0]->rules[1]->empty(), SPOT);
+  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules.size(), (unsigned)1, SPOT);
+  assert_true(cfgPtr->getBenchmarkSet()[0]->rules[0]->empty(), SPOT);
 
   std::string values1 = "0x1234567887654321";
   std::string values2 = "0x8888444422221111";
@@ -133,14 +153,14 @@ TEST(test_luaconfigurator_rules)
   configurator.addRuleAtomRange(values1, values2);
   configurator.addRuleAtomPrefix(values1, values3);
 
-  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[1]->size(), (unsigned)3, SPOT);
-  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(0)->getType(), Generic::RuleAtom::EXACT, SPOT);
-  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(1)->getType(), Generic::RuleAtom::RANGE, SPOT);
-  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(2)->getType(), Generic::RuleAtom::PREFIX, SPOT);
+  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[0]->size(), (unsigned)3, SPOT);
+  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(0)->getType(), Generic::RuleAtom::EXACT, SPOT);
+  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(1)->getType(), Generic::RuleAtom::RANGE, SPOT);
+  assert_equal(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(2)->getType(), Generic::RuleAtom::PREFIX, SPOT);
 
-  Generic::RuleAtomExact* atom21 = static_cast<Generic::RuleAtomExact*>(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(0).get());
-  Generic::RuleAtomRange* atom22 = static_cast<Generic::RuleAtomRange*>(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(1).get());
-  Generic::RuleAtomPrefix* atom23 = static_cast<Generic::RuleAtomPrefix*>(cfgPtr->getBenchmarkSet()[0]->rules[1]->at(2).get());
+  Generic::RuleAtomExact* atom21 = static_cast<Generic::RuleAtomExact*>(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(0).get());
+  Generic::RuleAtomRange* atom22 = static_cast<Generic::RuleAtomRange*>(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(1).get());
+  Generic::RuleAtomPrefix* atom23 = static_cast<Generic::RuleAtomPrefix*>(cfgPtr->getBenchmarkSet()[0]->rules[0]->at(2).get());
 
   double cmp1 = 1.3117684671392817E18;
   double cmp2 = 9.838188445411971E18;
