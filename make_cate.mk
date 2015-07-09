@@ -71,6 +71,10 @@ $(CATE_OBJ_DIR)%.o: $(SRCDIR)core/%.cpp $(INCLUDE)/core/%.hpp
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
+$(CATE_OBJ_DIR)%.o: $(SRCDIR)generator/%.cpp $(INCLUDE)/generator/%.hpp 
+	$(MKDIR)
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
 $(CATE_OBJ_DIR)%.o: $(SRCDIR)evaluation/%.cpp $(INCLUDE)/evaluation/%.hpp
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@

@@ -5,7 +5,7 @@
 #include <memory>
 #include <configuration/Benchmark.hpp>
 #include <generics/PacketHeader.hpp>
-#include <core/RandomNumberGenerator.hpp>
+#include <generator/RandomNumberGenerator.hpp>
 
 /** Contains all independent number generators each for one header field. */
 typedef std::vector<std::unique_ptr<RandomNumberGenerator>> GeneratorSet;

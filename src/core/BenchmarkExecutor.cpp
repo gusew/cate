@@ -1,5 +1,5 @@
 #include <core/BenchmarkExecutor.hpp>
-#include <core/HeaderGenerator.hpp>
+#include <generator/HeaderGenerator.hpp>
 #include <iostream>
 
 bool BenchmarkExecutor::_loadAlgorithm() {

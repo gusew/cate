@@ -1,5 +1,5 @@
 #include <libunittest/all.hpp>
-#include <core/HeaderGenerator.hpp>
+#include <generator/HeaderGenerator.hpp>
 #include <memory>
 
 using namespace unittest::assertions;

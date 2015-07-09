@@ -1,5 +1,5 @@
 #include <libunittest/all.hpp>
-#include <core/RandomNumberGenerator.hpp>
+#include <generator/RandomNumberGenerator.hpp>
 #include <memory>
 
 using namespace unittest::assertions;

@@ -1,4 +1,4 @@
-#include <core/RandomNumberGenerator.hpp>
+#include <generator/RandomNumberGenerator.hpp>
 #include <cmath>
 
 void RandomNumberGenerator::_createBitmask() {
