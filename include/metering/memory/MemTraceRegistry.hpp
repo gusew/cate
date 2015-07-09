@@ -2,8 +2,8 @@
 #define MEM_TRACE_REGISTRY_INCLUDED
 
 #include <memory>
-#include <memory/Registry.hpp>
-#include <memory/MemManager.hpp>
+#include <metering/memory/Registry.hpp>
+#include <metering/memory/MemManager.hpp>
 
 namespace Memory {
 

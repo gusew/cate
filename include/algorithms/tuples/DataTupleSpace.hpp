@@ -1,7 +1,7 @@
 #ifndef DATA_TUPLESPACE_INCLUDED
 #define DATA_TUPLESPACE_INCLUDED
 
-#include <memory/MemTrace.hpp>
+#include <metering/memory/MemTrace.hpp>
 #include <iostream>
 
 namespace DataTupleSpace {

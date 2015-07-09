@@ -4,9 +4,9 @@
 #include <string>
 #include <memory>
 #include <generics/AlgFactory.hpp>
-#include <memory/MemTrace.hpp>
-#include <memory/MemManager.hpp>
-#include <memory/MemTraceRegistry.hpp>
+#include <metering/memory/MemTrace.hpp>
+#include <metering/memory/MemManager.hpp>
+#include <metering/memory/MemTraceRegistry.hpp>
 #include <configuration/Benchmark.hpp>
 #include <evaluation/Evaluator.hpp>
 #include <evaluation/Results.hpp>

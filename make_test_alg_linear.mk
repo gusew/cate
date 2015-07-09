@@ -10,8 +10,8 @@ TEST_ALG_LIN	= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) \
 .PHONY: utest_linearsearch
 
 # build test suite for the algorithm
-utest_linearsearch: $(TEST_EXEC_DIR)$(APPNAME)_utest_linearsearch
-	./run_test.sh $< -v
+utest_linearsearch: $(TEST_EXEC_DIR)$(APPNAME)_utest_linearsearch $(TEST_RUNNER)
+	$(TEST_RUNNER) $< -v
 
 $(TEST_EXEC_DIR)$(APPNAME)_utest_linearsearch: $(TEST_BUILD_SO) $(INCLUDE)/libunittest build_gmp $(TEST_ALG_LIN)
 	$(MKDIR)

@@ -4,8 +4,8 @@
 #include <memory>
 #include <algorithms/common/Data10tpl.hpp>
 #include <algorithms/tuples/DataTupleSpace.hpp>
-#include <memory/MemTrace.hpp>
-#include <core/ChronoManager.hpp>
+#include <metering/memory/MemTrace.hpp>
+#include <metering/time/ChronoManager.hpp>
 
 namespace DataTupleSpace10tpl {
 

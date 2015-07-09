@@ -1,14 +1,14 @@
 #ifndef ALG_TEST_FIXTURES_INCLUDED
 #define ALG_TEST_FIXTURES_INCLUDED
 
-#include <generics/RuleSet.hpp>
-#include <generics/PacketHeader.hpp>
 #include <cstdint>
 #include <memory>
-#include <memory/MemManager.hpp>
-#include <memory/MemTrace.hpp>
-#include <memory/MemTraceRegistry.hpp>
-#include <core/ChronoManager.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
+#include <metering/memory/MemManager.hpp>
+#include <metering/memory/MemTrace.hpp>
+#include <metering/memory/MemTraceRegistry.hpp>
+#include <metering/time/ChronoManager.hpp>
 
 /** For holding the MemRegistry and MemManager instances. */
 struct MemChronoSetup {

@@ -4,7 +4,7 @@
 #include <generics/Base.hpp>
 #include <algorithms/common/Converter10tpl.hpp>
 #include <algorithms/hicuts/DataHiCuts10tpl.hpp>
-#include <core/ChronoManager.hpp>
+#include <metering/time/ChronoManager.hpp>
 #include <memory>
 #include <cstdint>
 

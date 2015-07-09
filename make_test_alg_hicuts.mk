@@ -14,8 +14,8 @@ TEST_ALG_HIC	= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) \
 .PHONY: utest_hicuts
 
 # build test suite for the algorithm
-utest_hicuts: $(TEST_EXEC_DIR)$(APPNAME)_utest_hicuts
-	./run_test.sh $< -v
+utest_hicuts: $(TEST_EXEC_DIR)$(APPNAME)_utest_hicuts $(TEST_RUNNER)
+	$(TEST_RUNNER) $< -v
 
 $(TEST_EXEC_DIR)$(APPNAME)_utest_hicuts: $(TEST_BUILD_SO) $(INCLUDE)/libunittest build_gmp $(TEST_ALG_HIC)
 	$(MKDIR)

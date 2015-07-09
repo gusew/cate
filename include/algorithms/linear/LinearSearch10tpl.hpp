@@ -1,10 +1,10 @@
 #ifndef LINEARSEARCH_10TPL_INCLUDED
 #define LINEARSEARCH_10TPL_INCLUDED
 
+#include <memory>
 #include <generics/Base.hpp>
 #include <algorithms/common/Converter10tpl.hpp>
-#include <core/ChronoManager.hpp>
-#include <memory>
+#include <metering/time/ChronoManager.hpp>
 
 class LinearSearch10tpl : public Base {
   /** inner representation of the rule set */

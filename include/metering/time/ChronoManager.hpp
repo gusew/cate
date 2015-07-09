@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include <core/Chronograph.hpp>
+#include <metering/time/Chronograph.hpp>
 
 /** one single chronometer group-result */
 typedef std::pair<std::string, unsigned int> ChronoResult; 

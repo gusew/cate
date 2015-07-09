@@ -11,8 +11,8 @@ TEST_ALG_TS		= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) \
 .PHONY: utest_tuples
 
 # build test suite for the algorithm
-utest_tuples: $(TEST_EXEC_DIR)$(APPNAME)_utest_tuples
-	./run_test.sh $< -v
+utest_tuples: $(TEST_EXEC_DIR)$(APPNAME)_utest_tuples $(TEST_RUNNER)
+	$(TEST_RUNNER) $< -v
 
 $(TEST_EXEC_DIR)$(APPNAME)_utest_tuples: $(TEST_BUILD_SO) $(INCLUDE)/libunittest build_gmp $(TEST_ALG_TS)
 	$(MKDIR)

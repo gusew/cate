@@ -3,9 +3,9 @@
 
 #include <cstddef>
 #include <memory>
-#include <memory/Registry.hpp>
-#include <memory/MemTraceRegistry.hpp>
-#include <memory/MemTraceData.hpp>
+#include <metering/memory/Registry.hpp>
+#include <metering/memory/MemTraceRegistry.hpp>
+#include <metering/memory/MemTraceData.hpp>
 
 namespace Memory {
 

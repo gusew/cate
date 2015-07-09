@@ -2,7 +2,7 @@
 #define MEM_TRACE_ACCESS_INCLUDED
 
 #include <cstddef>
-#include <memory/Registry.hpp>
+#include <metering/memory/Registry.hpp>
 
 namespace Memory {
 

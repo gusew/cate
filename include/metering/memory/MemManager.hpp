@@ -4,8 +4,8 @@
 #include <memory>
 #include <unordered_map>
 #include <vector>
-#include <memory/Registry.hpp>
-#include <memory/MemSnapshot.hpp>
+#include <metering/memory/Registry.hpp>
+#include <metering/memory/MemSnapshot.hpp>
 #include <utility>
 
 namespace Memory {

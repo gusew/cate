@@ -4,9 +4,9 @@
 #include <string>
 #include <memory>
 #include <configuration/Benchmark.hpp>
+#include <metering/time/ChronoManager.hpp>
+#include <metering/memory/MemManager.hpp>
 #include <generics/RuleSet.hpp>
-#include <core/ChronoManager.hpp>
-#include <memory/MemManager.hpp>
 #include <generics/PacketHeader.hpp>
 #include <evaluation/Results.hpp>
 

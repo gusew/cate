@@ -87,7 +87,11 @@ $(CATE_OBJ_DIR)%.o: $(SRCDIR)frontend/%.cpp $(INCLUDE)/frontend/%.hpp
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
-$(CATE_OBJ_DIR)%.o: $(SRCDIR)memory/%.cpp $(INCLUDE)/memory/%.hpp 
+$(CATE_OBJ_DIR)%.o: $(SRCDIR)metering/memory/%.cpp $(INCLUDE)/metering/memory/%.hpp 
+	$(MKDIR)
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
+$(CATE_OBJ_DIR)%.o: $(SRCDIR)metering/time/%.cpp $(INCLUDE)/metering/time/%.hpp 
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 

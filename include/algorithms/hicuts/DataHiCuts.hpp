@@ -4,7 +4,7 @@
 #include <memory>
 #include <forward_list>
 #include <vector>
-#include <memory/MemTrace.hpp>
+#include <metering/memory/MemTrace.hpp>
 
 namespace DataHiCuts {
 

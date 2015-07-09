@@ -2,10 +2,10 @@
 #define TUPLESPACE_2tpl_INCLUDED
 
 #include <generics/Base.hpp>
-#include <algorithms/common/Converter2tpl.hpp>
 #include <generics/VarValue.hpp>
+#include <algorithms/common/Converter2tpl.hpp>
 #include <algorithms/tuples/DataTupleSpace2tpl.hpp>
-#include <core/ChronoManager.hpp>
+#include <metering/time/ChronoManager.hpp>
 #include <memory>
 #include <tuple>
 

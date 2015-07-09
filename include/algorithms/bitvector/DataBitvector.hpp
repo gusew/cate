@@ -5,7 +5,7 @@
 #include <limits>
 #include <map>
 #include <forward_list>
-#include <memory/MemTrace.hpp>
+#include <metering/memory/MemTrace.hpp>
 
 namespace DataBitvector {
 

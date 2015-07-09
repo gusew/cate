@@ -1,8 +1,8 @@
 #include <libunittest/all.hpp>
-#include <memory/MemManager.hpp>
-#include <memory/MemSnapshot.hpp>
-#include <memory/Registry.hpp>
-#include <memory/MemTraceData.hpp>
+#include <metering/memory/MemManager.hpp>
+#include <metering/memory/MemSnapshot.hpp>
+#include <metering/memory/Registry.hpp>
+#include <metering/memory/MemTraceData.hpp>
 #include <memory>
 #include <limits>
 

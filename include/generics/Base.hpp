@@ -5,8 +5,8 @@
 #include <vector>
 #include <generics/PacketHeader.hpp>
 #include <generics/RuleSet.hpp>
-#include <memory/MemManager.hpp>
-#include <core/ChronoManager.hpp>
+#include <metering/memory/MemManager.hpp>
+#include <metering/time/ChronoManager.hpp>
 
 /**
  * Base abstract class for all implemented filtering algorithms.

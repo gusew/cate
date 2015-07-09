@@ -12,8 +12,8 @@ TEST_ALG_BV		= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) \
 .PHONY: utest_bitvector
 
 # build test suite for the algorithm
-utest_bitvector: $(TEST_EXEC_DIR)$(APPNAME)_utest_bitvector
-	./run_test.sh $< -v
+utest_bitvector: $(TEST_EXEC_DIR)$(APPNAME)_utest_bitvector $(TEST_RUNNER)
+	$(TEST_RUNNER) $< -v
 
 $(TEST_EXEC_DIR)$(APPNAME)_utest_bitvector: $(TEST_BUILD_SO) $(INCLUDE)/libunittest build_gmp $(TEST_ALG_BV)
 	$(MKDIR)

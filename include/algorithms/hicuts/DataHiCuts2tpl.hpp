@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <vector>
-#include <memory/MemTrace.hpp>
+#include <metering/memory/MemTrace.hpp>
 #include <algorithms/hicuts/DataHiCuts.hpp>
 #include <algorithms/common/Data2tpl.hpp>
 

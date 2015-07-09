@@ -1,10 +1,10 @@
 #ifndef LINEARSEARCH_2TPL_INCLUDED
 #define LINEARSEARCH_2TPL_INCLUDED
 
+#include <memory>
 #include <generics/Base.hpp>
 #include <algorithms/common/Converter2tpl.hpp>
-#include <core/ChronoManager.hpp>
-#include <memory>
+#include <metering/time/ChronoManager.hpp>
 
 class LinearSearch2tpl : public Base {
   /** inner representation of the rule set */

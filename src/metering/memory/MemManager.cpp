@@ -1,5 +1,5 @@
-#include <memory/MemManager.hpp>
-#include <memory/MemTraceData.hpp>
+#include <metering/memory/MemManager.hpp>
+#include <metering/memory/MemTraceData.hpp>
 
 using namespace Memory;
 

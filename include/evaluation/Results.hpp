@@ -4,8 +4,8 @@
 #include <memory>
 #include <vector>
 #include <utility>
-#include <core/ChronoManager.hpp>
-#include <memory/MemManager.hpp>
+#include <metering/time/ChronoManager.hpp>
+#include <metering/memory/MemManager.hpp>
 #include <generics/RuleSet.hpp>
 #include <evaluation/Statistics.hpp>
 
