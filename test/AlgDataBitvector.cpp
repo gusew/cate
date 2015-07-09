@@ -1,6 +1,6 @@
 #include <libunittest/all.hpp>
-#include <algorithms/DataBitvector.hpp>
-#include <algorithms/AlgTestFixtures.hpp>
+#include <algorithms/bitvector/DataBitvector.hpp>
+#include <test/AlgTestFixtures.hpp>
 
 using namespace unittest::assertions;
 using namespace DataBitvector;

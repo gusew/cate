@@ -1,4 +1,4 @@
-#include <algorithms/AlgTestFixtures.hpp>
+#include <test/AlgTestFixtures.hpp>
 #include <memory>
 #include <libunittest/all.hpp>
 

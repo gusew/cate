@@ -1,18 +1,18 @@
-algLinSearch2 = createAlgorithm("LinearSearch2tpl.so", {10000})
-algLinSearch4 = createAlgorithm("LinearSearch4tpl.so", {10000})
-algLinSearch10 = createAlgorithm("LinearSearch10tpl.so", {10000})
+algLinSearch2 = createAlgorithm("../algorithms/lib/LinearSearch2tpl.so", {10000})
+algLinSearch4 = createAlgorithm("../algorithms/lib/LinearSearch4tpl.so", {10000})
+algLinSearch10 = createAlgorithm("../algorithms/lib/LinearSearch10tpl.so", {10000})
 
-algBitvector2 = createAlgorithm("Bitvector2tpl.so", {10000})
-algBitvector4 = createAlgorithm("Bitvector4tpl.so", {10000})
-algBitvector10 = createAlgorithm("Bitvector10tpl.so", {10000})
+algBitvector2 = createAlgorithm("../algorithms/lib/Bitvector2tpl.so", {10000})
+algBitvector4 = createAlgorithm("../algorithms/lib/Bitvector4tpl.so", {10000})
+algBitvector10 = createAlgorithm("../algorithms/lib/Bitvector10tpl.so", {10000})
 
-algTuples2 = createAlgorithm("TupleSpace2tpl.so", {10000, 107})
-algTuples4 = createAlgorithm("TupleSpace4tpl.so", {10000, 107})
-algTuples10 = createAlgorithm("TupleSpace10tpl.so", {10000, 107})
+algTuples2 = createAlgorithm("../algorithms/lib/TupleSpace2tpl.so", {10000, 107})
+algTuples4 = createAlgorithm("../algorithms/lib/TupleSpace4tpl.so", {10000, 107})
+algTuples10 = createAlgorithm("../algorithms/lib/TupleSpace10tpl.so", {10000, 107})
 
-algHiCuts2 = createAlgorithm("HiCuts2tpl.so", {10000, 20, 3.0})
-algHiCuts4 = createAlgorithm("HiCuts4tpl.so", {10000, 20, 3.0})
-algHiCuts10 = createAlgorithm("HiCuts10tpl.so", {10000, 20, 3.0})
+algHiCuts2 = createAlgorithm("../algorithms/lib/HiCuts2tpl.so", {10000, 20, 3.0})
+algHiCuts4 = createAlgorithm("../algorithms/lib/HiCuts4tpl.so", {10000, 20, 3.0})
+algHiCuts10 = createAlgorithm("../algorithms/lib/HiCuts10tpl.so", {10000, 20, 3.0})
 
 
 structure2 = {32, 32}

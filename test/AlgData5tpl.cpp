@@ -1,9 +1,9 @@
 #include <libunittest/all.hpp>
 #include <data/RuleSet.hpp>
 #include <data/PacketHeader.hpp>
-#include <algorithms/Data5tpl.hpp>
+#include <algorithms/common/Data5tpl.hpp>
 #include <memory>
-#include <algorithms/AlgTestFixtures.hpp>
+#include <test/AlgTestFixtures.hpp>
 
 using namespace unittest::assertions;
 using namespace Memory;

@@ -1,5 +1,5 @@
 #include <libunittest/all.hpp>
-#include <data/VarValue.hpp>
+#include <generics/VarValue.hpp>
 
 using namespace unittest::assertions;
 using namespace Generic;

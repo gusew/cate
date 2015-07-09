@@ -1,2 +1,0 @@
-#include <algorithms/DataTupleSpace.hpp>
-

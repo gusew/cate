@@ -1,7 +1,7 @@
 #include <libunittest/all.hpp>
-#include <algorithms/AlgTestFixtures.hpp>
-#include <algorithms/Data5tpl.hpp>
-#include <algorithms/LinearSearch5tpl.hpp>
+#include <test/AlgTestFixtures.hpp>
+#include <algorithms/common/Data5tpl.hpp>
+#include <algorithms/linear/LinearSearch5tpl.hpp>
 #include <memory>
 
 using namespace unittest::assertions;

@@ -2,7 +2,7 @@
 #define RANDOMDISTRIBUTION_INCLUDED
 
 #include <limits>
-#include <data/VarValue.hpp>
+#include <generics/VarValue.hpp>
 
 /** Abstract base type for all different random distributions. */
 struct RandomDistribution {

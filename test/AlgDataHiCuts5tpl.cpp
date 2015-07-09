@@ -1,6 +1,6 @@
 #include <libunittest/all.hpp>
-#include <algorithms/DataHiCuts5tpl.hpp>
-#include <algorithms/AlgTestFixtures.hpp>
+#include <algorithms/hicuts/DataHiCuts5tpl.hpp>
+#include <test/AlgTestFixtures.hpp>
 
 using namespace unittest::assertions;
 using namespace DataHiCuts5tpl;

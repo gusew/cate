@@ -5,7 +5,7 @@
 #include <memory>
 #include <data/Benchmark.hpp>
 #include <data/Results.hpp>
-#include <algorithms/AlgFactory.hpp>
+#include <generics/AlgFactory.hpp>
 #include <memory/MemTrace.hpp>
 #include <memory/MemManager.hpp>
 #include <memory/MemTraceRegistry.hpp>

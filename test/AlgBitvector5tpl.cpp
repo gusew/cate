@@ -1,6 +1,6 @@
 #include <libunittest/all.hpp>
-#include <algorithms/AlgTestFixtures.hpp>
-#include <algorithms/Bitvector5tpl.hpp>
+#include <test/AlgTestFixtures.hpp>
+#include <algorithms/bitvector/Bitvector5tpl.hpp>
 #include <memory>
 
 using namespace unittest::assertions;

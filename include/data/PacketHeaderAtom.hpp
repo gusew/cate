@@ -2,7 +2,7 @@
 #define PACKET_HEADER_ATOM_INCLUDED
 
 #include <string>
-#include <data/VarValue.hpp>
+#include <generics/VarValue.hpp>
 
 namespace Generic {
 

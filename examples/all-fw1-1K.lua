@@ -1,7 +1,7 @@
-algLinSearch = createAlgorithm("LinearSearch5tpl.so", {10000})
-algBitvector = createAlgorithm("Bitvector5tpl.so", {10000})
-algTuples = createAlgorithm("TupleSpace5tpl.so", {10000, 107})
-algHiCuts = createAlgorithm("HiCuts5tpl.so", {10000, 36, 3.0})
+algLinSearch = createAlgorithm("../algorithms/lib/LinearSearch5tpl.so", {10000})
+algBitvector = createAlgorithm("../algorithms/lib/Bitvector5tpl.so", {10000})
+algTuples = createAlgorithm("../algorithms/lib/TupleSpace5tpl.so", {10000, 107})
+algHiCuts = createAlgorithm("../algorithms/lib/HiCuts5tpl.so", {10000, 36, 3.0})
 
 structureIPv4 = {32, 32, 16, 16, 8}
 

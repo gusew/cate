@@ -24,10 +24,10 @@
 ]]
 
 -- Specify some classification algorithms
-algLinSearch = createAlgorithm("LinearSearch5tpl.so", {100})
-algBitvector = createAlgorithm("Bitvector5tpl.so", {100})
-algHiCuts = createAlgorithm("HiCuts5tpl.so", {100, 16, 3.0}) -- params: binth, spfac
-algTuples = createAlgorithm("TupleSpace5tpl.so", {1000, 107}) -- param: hash bucket capacity
+algLinSearch = createAlgorithm("../algorithms/lib/LinearSearch5tpl.so", {100})
+algBitvector = createAlgorithm("../algorithms/lib/Bitvector5tpl.so", {100})
+algHiCuts = createAlgorithm("../algorithms/lib/HiCuts5tpl.so", {100, 16, 3.0}) -- params: binth, spfac
+algTuples = createAlgorithm("../algorithms/lib/TupleSpace5tpl.so", {1000, 107}) -- param: hash bucket capacity
 
 -- Definition of header data structure (amount of bits for each field)
 structureIPv4 = {32, 32, 16, 16, 8} -- ip, ip, port, port, protocol

@@ -58,7 +58,7 @@ TEST(test_filesyshelper_checkdir)
 TEST(test_filesyshelper_checkfile)
 {
   assert_true(FilesysHelper::checkFileExists("makefile"), SPOT);
-  assert_true(FilesysHelper::checkFileExists("./build/test/cate_unittest"), SPOT);
+  assert_true(FilesysHelper::checkFileExists("./build/test/cate_unittests"), SPOT);
   assert_true(FilesysHelper::checkFileExists("/usr/bin/make"), SPOT);
 
   assert_false(FilesysHelper::checkFileExists("fantasy-file"), SPOT);

@@ -1,7 +1,7 @@
 #ifndef RULEATOM_INCLUDED
 #define RULEATOM_INCLUDED
 
-#include <data/VarValue.hpp>
+#include <generics/VarValue.hpp>
 #include <tuple>
 
 namespace Generic {

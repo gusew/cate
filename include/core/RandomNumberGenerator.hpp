@@ -4,7 +4,7 @@
 #include <random>
 #include <memory>
 #include <data/RandomDistribution.hpp>
-#include <data/VarValue.hpp>
+#include <generics/VarValue.hpp>
 
 /** Choose a generator engine type (for values <= 32 bit): */
 //typedef std::default_random_engine GeneratorEngine;
