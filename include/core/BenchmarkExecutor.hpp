@@ -3,7 +3,7 @@
 
 #include <string>
 #include <memory>
-#include <data/Benchmark.hpp>
+#include <configuration/Benchmark.hpp>
 #include <data/Results.hpp>
 #include <generics/AlgFactory.hpp>
 #include <memory/MemTrace.hpp>

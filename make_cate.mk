@@ -75,6 +75,10 @@ $(CATE_OBJ_DIR)%.o: $(SRCDIR)data/%.cpp $(INCLUDE)/data/%.hpp
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
+$(CATE_OBJ_DIR)%.o: $(SRCDIR)configuration/%.cpp $(INCLUDE)/configuration/%.hpp
+	$(MKDIR)
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
 $(CATE_OBJ_DIR)%.o: $(SRCDIR)frontend/%.cpp $(INCLUDE)/frontend/%.hpp 
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@

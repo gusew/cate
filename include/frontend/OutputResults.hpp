@@ -3,7 +3,7 @@
 
 #include <string>
 #include <memory>
-#include <data/Benchmark.hpp>
+#include <configuration/Benchmark.hpp>
 #include <generics/RuleSet.hpp>
 #include <core/ChronoManager.hpp>
 #include <memory/MemManager.hpp>

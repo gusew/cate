@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include <data/Benchmark.hpp>
+#include <configuration/Benchmark.hpp>
 #include <generics/PacketHeader.hpp>
 #include <core/RandomNumberGenerator.hpp>
 

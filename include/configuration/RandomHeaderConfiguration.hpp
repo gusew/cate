@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include <data/RandomDistribution.hpp>
+#include <configuration/RandomDistribution.hpp>
 
 /** Type of a vector with all configured random distributions per header field. */
 typedef std::vector<std::unique_ptr<RandomDistribution>> RandomDistributionSet;

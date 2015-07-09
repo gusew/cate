@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 #include <liblua/lua.hpp>
-#include <core/LuaConfigurator.hpp>
+#include <configuration/LuaConfigurator.hpp>
 
 namespace Lua {
 

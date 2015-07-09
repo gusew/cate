@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <data/Configuration.hpp>
+#include <configuration/Configuration.hpp>
 
 /**
  * Is used as a connector between LuaInterpreter, which goes through the

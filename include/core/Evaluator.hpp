@@ -1,7 +1,7 @@
 #ifndef EVALUATOR_INCLUDED
 #define EVALUATOR_INCLUDED
 
-#include <data/Benchmark.hpp>
+#include <configuration/Benchmark.hpp>
 #include <data/Results.hpp>
 
 /** 

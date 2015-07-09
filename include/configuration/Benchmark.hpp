@@ -6,7 +6,7 @@
 #include <string>
 #include <generics/RuleSet.hpp>
 #include <generics/PacketHeader.hpp>
-#include <data/RandomHeaderConfiguration.hpp>
+#include <configuration/RandomHeaderConfiguration.hpp>
 
 /** contains parameters to configure an algorithm */
 typedef std::vector<double> AlgorithmParameterSet;

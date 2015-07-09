@@ -1,8 +1,8 @@
 #include <frontend/Shell.hpp>
 #include <iostream>
-#include <data/Configuration.hpp>
-#include <core/LuaConfigurator.hpp>
-#include <core/LuaInterpreter.hpp>
+#include <configuration/Configuration.hpp>
+#include <configuration/LuaConfigurator.hpp>
+#include <configuration/LuaInterpreter.hpp>
 #include <core/BenchmarkExecutor.hpp>
 
 using namespace Frontend;

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <data/Benchmark.hpp>
+#include <configuration/Benchmark.hpp>
 
 typedef std::vector<std::shared_ptr<Benchmark>> BenchmarkSet;
 

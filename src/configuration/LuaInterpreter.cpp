@@ -1,4 +1,4 @@
-#include <core/LuaInterpreter.hpp>
+#include <configuration/LuaInterpreter.hpp>
 #include <iostream>
 #include <signal.h>
 #include <stdlib.h>

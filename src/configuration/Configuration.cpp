@@ -1,4 +1,4 @@
-#include <data/Configuration.hpp>
+#include <configuration/Configuration.hpp>
 #include <chrono>
 
 void Configuration::setBenchmarkIds() {

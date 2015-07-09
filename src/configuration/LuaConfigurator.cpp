@@ -1,6 +1,6 @@
-#include <core/LuaConfigurator.hpp>
+#include <configuration/LuaConfigurator.hpp>
 #include <limits>
-#include <data/RandomHeaderConfiguration.hpp>
+#include <configuration/RandomHeaderConfiguration.hpp>
 
 using namespace Generic;
 

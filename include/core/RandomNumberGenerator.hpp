@@ -3,7 +3,7 @@
 
 #include <random>
 #include <memory>
-#include <data/RandomDistribution.hpp>
+#include <configuration/RandomDistribution.hpp>
 #include <generics/VarValue.hpp>
 
 /** Choose a generator engine type (for values <= 32 bit): */
