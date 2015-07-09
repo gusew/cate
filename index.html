@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>CATE - Classification Algorithms Testing Environment (github)</title>
+    <title>CATE by gusew</title>
   </head>
 
   <body>
@@ -34,20 +34,20 @@
           <h3>
 <a id="classification-algorithms-testing-environment" class="anchor" href="#classification-algorithms-testing-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classification Algorithms Testing Environment</h3>
 
-<p>CATE is a framework for consistently and reproducibly extracting the key performance characteristics of classification algorithms, such as memory footprint and matching speed. Classification algorithms are utilized in network packet classification which is an essential part of varios services of today's packet-switched networks, like, for instance, firewalling, policy routing, intrusion detection, and traffic rate limiting.</p>
+<p>CATE is a framework for consistently and reproducibly extracting the key performance characteristics of classification algorithms, such as memory footprint and matching speed. Classification algorithms are utilized in network packet classification which is an essential part of various services of today's packet-switched networks, like, for instance, firewalling, policy routing, intrusion detection, and traffic rate limiting.</p>
 
 <h4>
 <a id="quick-start-guide" class="anchor" href="#quick-start-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start Guide</h4>
 
 <ol>
 <li>
-<p>Clone CATE.</p>
+<p>Clone CATE (or extract the zip-file).</p>
 
 <pre><code>$ git clone https://github.com/gusew/cate.git
 </code></pre>
 </li>
 <li>
-<p>Move into the CATE directory.</p>
+<p>Change into the CATE directory.</p>
 
 <pre><code>$ cd cate/
 </code></pre>
@@ -67,7 +67,7 @@
 <li>
 <p>Run CATE with an example benchmark suite (1,000 rules and all algorithms).</p>
 
-<pre><code>$ ./build/cate examples/all-acl1-1K.lua results/
+<pre><code>$ ./build/cate/cate examples/all-acl1-1K.lua results/
 </code></pre>
 </li>
 </ol>
