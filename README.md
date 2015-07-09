@@ -51,7 +51,7 @@ the '$(MEMDISABLE)' occurence. The result will look like:
 
         CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic $(MEMDISABLE)
         
-Then, completely rebuild the CATE framework together will all algorithms:
+Then, completely rebuild the CATE framework together with all algorithms:
 
         $ make clean
         $ make
