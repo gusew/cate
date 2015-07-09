@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include <data/RuleAtom.hpp>
+#include <generics/RuleAtom.hpp>
 
 namespace Generic {
 

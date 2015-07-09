@@ -1,4 +1,4 @@
-#include <data/RuleSet.hpp>
+#include <generics/RuleSet.hpp>
 
 bool Generic::ruleSetIsValid(RuleSet& rs) {
 	// check, if amount of Atoms per Rule is consistent

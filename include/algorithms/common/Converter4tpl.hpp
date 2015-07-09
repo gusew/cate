@@ -1,8 +1,8 @@
 #ifndef CONVERTER_4TPL_INCLUDED
 #define CONVERTER_4TPL_INCLUDED
 
-#include <data/RuleSet.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
 #include <algorithms/common/Data4tpl.hpp>
 
 /** Handles the conversion of values with variable length to target five-tuple type. */

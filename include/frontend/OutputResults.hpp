@@ -4,10 +4,10 @@
 #include <string>
 #include <memory>
 #include <data/Benchmark.hpp>
-#include <data/RuleSet.hpp>
+#include <generics/RuleSet.hpp>
 #include <core/ChronoManager.hpp>
 #include <memory/MemManager.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/PacketHeader.hpp>
 #include <data/Results.hpp>
 
 class OutputResults {

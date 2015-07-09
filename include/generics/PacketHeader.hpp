@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <vector>
-#include <data/PacketHeaderAtom.hpp>
+#include <generics/PacketHeaderAtom.hpp>
 
 namespace Generic {
 

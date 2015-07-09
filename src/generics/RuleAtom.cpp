@@ -1,4 +1,4 @@
-#include <data/RuleAtom.hpp>
+#include <generics/RuleAtom.hpp>
 
 void Generic::RuleAtomRange::toPrefixes(std::vector<std::tuple<VarValue, VarValue>>& result) const {
 

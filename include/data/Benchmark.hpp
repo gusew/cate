@@ -4,8 +4,8 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include <data/RuleSet.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
 #include <data/RandomHeaderConfiguration.hpp>
 
 /** contains parameters to configure an algorithm */

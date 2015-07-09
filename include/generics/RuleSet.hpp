@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include <data/Rule.hpp>
+#include <generics/Rule.hpp>
 #include <limits>
 
 namespace Generic {

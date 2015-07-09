@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <data/Benchmark.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/PacketHeader.hpp>
 #include <core/RandomNumberGenerator.hpp>
 
 /** Contains all independent number generators each for one header field. */

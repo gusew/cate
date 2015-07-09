@@ -6,7 +6,7 @@
 #include <utility>
 #include <core/ChronoManager.hpp>
 #include <memory/MemManager.hpp>
-#include <data/RuleSet.hpp>
+#include <generics/RuleSet.hpp>
 #include <data/Statistics.hpp>
 
 /** Collects all results of one single testrun of a benchmark. */

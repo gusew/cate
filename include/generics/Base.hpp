@@ -3,8 +3,8 @@
 
 #include <cstdint>
 #include <vector>
-#include <data/PacketHeader.hpp>
-#include <data/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
+#include <generics/RuleSet.hpp>
 #include <memory/MemManager.hpp>
 #include <core/ChronoManager.hpp>
 
