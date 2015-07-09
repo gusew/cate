@@ -2,7 +2,7 @@
 #define EVALUATOR_INCLUDED
 
 #include <configuration/Benchmark.hpp>
-#include <data/Results.hpp>
+#include <evaluation/Results.hpp>
 
 /** 
  * Evaluates the data of benchmarks in a benchmark suite.

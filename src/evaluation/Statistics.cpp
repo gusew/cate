@@ -1,4 +1,4 @@
-#include <data/Statistics.hpp>
+#include <evaluation/Statistics.hpp>
 
 Histogram::Histogram(unsigned int amountBins) : _bins() {
   for (unsigned int id = 0; id < amountBins; ++id) {

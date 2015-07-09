@@ -1,7 +1,7 @@
 #include <libunittest/all.hpp>
-#include <core/LuaConfigurator.hpp>
-#include <data/Configuration.hpp>
-#include <data/RuleAtom.hpp>
+#include <configuration/LuaConfigurator.hpp>
+#include <configuration/Configuration.hpp>
+#include <generics/RuleAtom.hpp>
 #include <memory>
 #include <vector>
 #include <cstdint>

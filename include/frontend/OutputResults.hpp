@@ -8,7 +8,7 @@
 #include <core/ChronoManager.hpp>
 #include <memory/MemManager.hpp>
 #include <generics/PacketHeader.hpp>
-#include <data/Results.hpp>
+#include <evaluation/Results.hpp>
 
 class OutputResults {
   /** Benchmark to output results for. */

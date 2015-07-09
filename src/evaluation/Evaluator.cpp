@@ -1,7 +1,7 @@
-#include <core/Evaluator.hpp>
+#include <evaluation/Evaluator.hpp>
 #include <utility>
 #include <string>
-#include <data/Statistics.hpp>
+#include <evaluation/Statistics.hpp>
 
 void Evaluator::generateBenchmarkInfo(BenchmarkPtr b, BenchmarkInfoVector& info) {
   info.push_back(std::make_pair("caption", b->caption));

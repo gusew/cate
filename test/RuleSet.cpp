@@ -1,6 +1,6 @@
 #include <libunittest/all.hpp>
-#include <data/RuleSet.hpp>
-#include <data/RuleAtom.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/RuleAtom.hpp>
 #include <memory>
 
 using namespace unittest::assertions;

@@ -7,7 +7,7 @@
 #include <core/ChronoManager.hpp>
 #include <memory/MemManager.hpp>
 #include <generics/RuleSet.hpp>
-#include <data/Statistics.hpp>
+#include <evaluation/Statistics.hpp>
 
 /** Collects all results of one single testrun of a benchmark. */
 struct TestrunResults {

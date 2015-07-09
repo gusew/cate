@@ -3,14 +3,14 @@
 
 #include <string>
 #include <memory>
-#include <configuration/Benchmark.hpp>
-#include <data/Results.hpp>
 #include <generics/AlgFactory.hpp>
 #include <memory/MemTrace.hpp>
 #include <memory/MemManager.hpp>
 #include <memory/MemTraceRegistry.hpp>
+#include <configuration/Benchmark.hpp>
+#include <evaluation/Evaluator.hpp>
+#include <evaluation/Results.hpp>
 #include <frontend/OutputResults.hpp>
-#include <core/Evaluator.hpp>
 
 /** 
  * Prepares all relevant classes for the execution of a benchmark and triggers

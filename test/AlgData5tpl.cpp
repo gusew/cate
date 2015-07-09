@@ -1,6 +1,6 @@
 #include <libunittest/all.hpp>
-#include <data/RuleSet.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
 #include <algorithms/common/Data5tpl.hpp>
 #include <memory>
 #include <test/AlgTestFixtures.hpp>

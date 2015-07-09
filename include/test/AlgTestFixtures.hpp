@@ -1,8 +1,8 @@
 #ifndef ALG_TEST_FIXTURES_INCLUDED
 #define ALG_TEST_FIXTURES_INCLUDED
 
-#include <data/RuleSet.hpp>
-#include <data/PacketHeader.hpp>
+#include <generics/RuleSet.hpp>
+#include <generics/PacketHeader.hpp>
 #include <cstdint>
 #include <memory>
 #include <memory/MemManager.hpp>
