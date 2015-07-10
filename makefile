@@ -2,9 +2,9 @@ include make_vars.mk
 include make_version.mk
 
 # CATE with time metering only
-.PHONY: build_all_time_only 
-build_all_time_only: CFLAGS += $(MEMDISABLE)
-build_all_time_only: build_all
+.PHONY: build_all_nomem 
+build_all_nomem: CFLAGS += $(MEMDISABLE)
+build_all_nomem: build_all
 
 # CATE with default mode: combined memory & time metering
 .PHONY: build_all build_libs 
