@@ -43,19 +43,11 @@ We cordially welcome any implementations of further classification algorithms as
 
 
 ## Build CATE with disabled memory metering
-Measuring the memory footprint of algorithms can be disabled with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, open the file 'make_vars.mk' and uncomment in the line
-
-        CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic #$(MEMDISABLE)
-
-the '$(MEMDISABLE)' occurence. The result will look like:
-
-        CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic $(MEMDISABLE)
-        
-Then, completely rebuild the CATE framework together with all algorithms:
+Measuring the memory footprint of algorithms can be disabled by building the CATE framework with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, just use the makefile target 'build_all_nomem':
 
         $ make clean
-        $ make
-
+        $ make build_all_nomem
+        
 
 ## Run unit tests
 You can execute all available unit tests with the following makefile-targets:
