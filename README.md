@@ -43,7 +43,7 @@ We cordially welcome any implementations of further classification algorithms as
 
 
 ## Build CATE with disabled memory metering
-Measuring the memory footprint of algorithms can be disabled by building the CATE framework with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, just use the makefile target build_all_time_only':
+Measuring the memory footprint of algorithms can be disabled by building the CATE framework with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, just use the makefile target 'build_all_time_only':
 
         $ make clean
         $ make build_all_time_only
