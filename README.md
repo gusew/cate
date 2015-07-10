@@ -20,7 +20,7 @@ CATE is a framework for consistently and reproducibly extracting the key perform
   
 5. Run CATE with an example benchmark suite (1,000 rules and all algorithms).
 
-        $ ./build/cate examples/all-acl1-1K.lua results/
+        $ ./build/cate/cate examples/all-acl1-1K.lua results/
 
 
 ## Implementations of Classification Algorithms
@@ -43,7 +43,7 @@ We cordially welcome any implementations of further classification algorithms as
 
 
 ## Build CATE with disabled memory metering
-Measuring the memory footprint of algorithms can be disabled with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, open the file 'makefile.vars' and uncomment in the line
+Measuring the memory footprint of algorithms can be disabled with the preprocessor directive 'MEMTRACE_DISABLED'. In order to build CATE with deactivated memory metering, open the file 'make_vars.mk' and uncomment in the line
 
         CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic #$(MEMDISABLE)
 
@@ -51,7 +51,7 @@ the '$(MEMDISABLE)' occurence. The result will look like:
 
         CFLAGS = -O3 -Wall -Wextra -Werror -pedantic -std=c++11 -fPIC -fmax-errors=3 -Wl,--export-dynamic $(MEMDISABLE)
         
-Then, completely rebuild the CATE framework together will all algorithms:
+Then, completely rebuild the CATE framework together with all algorithms:
 
         $ make clean
         $ make
@@ -70,4 +70,8 @@ You can execute all available unit tests with the following makefile-targets:
         $ make utest_bitvector
         $ make utest_hicuts
         $ make utest_tuples
+
+3. Or test all classification algorithms at once.
+
+        $ make utest_all_algs
 
