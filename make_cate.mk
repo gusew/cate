@@ -1,6 +1,5 @@
 CATE_OBJ_DIR	= $(BUILD)obj/
 CATE_EXEC_DIR	= $(BUILD)cate/
-# TODO make both versions of cate: memory and time
 CATE_EXEC		= $(CATE_EXEC_DIR)$(APPNAME)
 
 # define necessary object files
