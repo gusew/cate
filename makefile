@@ -1,15 +1,15 @@
 include make_vars.mk
 include make_version.mk
 
-# CATE with time metering only
-.PHONY: build_all_nomem 
-build_all_nomem: CFLAGS += $(MEMDISABLE)
-build_all_nomem: build_all
-
 # CATE with default mode: combined memory & time metering
 .PHONY: build_all build_libs 
 build_all: build_cate build_algorithms
 	@echo "\nBuild process of CATE successfully terminated.\n"
+
+# CATE with time metering only
+.PHONY: build_all_nomem 
+build_all_nomem: CFLAGS += $(MEMDISABLE)
+build_all_nomem: build_all
 
 build_libs: build_lua build_gmp
 
