@@ -14,6 +14,9 @@ if [ $CHECKREADLINE = 0 ]; then
 	errcho " sudo apt-get install libreadline-dev"
 	errcho "On SUSE platforms use"
 	errcho " yum install readline-devel"
+	errcho ""
+	errcho "Don't forget afterwards to update the file index for locate with"
+	errcho "sudo updatedb"
 	exit 1
 fi
 
