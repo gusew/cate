@@ -11,10 +11,10 @@ TEST(test_databitvector_bv_size)
   AlgTestFixtures::setupMemChrono(setup);
 
   Bitvector bv1(4);
-  assert_equal(bv1.getSize(), (unsigned)(unsigned)4, SPOT);
+  assert_equal(bv1.getSize(), (unsigned)4, SPOT);
   
   Bitvector bv2(16);
-  assert_equal(bv2.getSize(), (unsigned)(unsigned)16, SPOT);
+  assert_equal(bv2.getSize(), (unsigned)16, SPOT);
 
   Bitvector bv3(0); 
   assert_equal(bv3.getSize(), (unsigned)0, SPOT); 
