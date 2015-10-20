@@ -32,6 +32,7 @@ build/
 liblua/lua
 liblua/luac
 libgmp/.libs/
+libgmp/config.m4
 include/libunittest
 include/gmp.h
 include/gmpxx.h
