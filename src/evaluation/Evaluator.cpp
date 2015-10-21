@@ -25,20 +25,20 @@ void Evaluator::generateBenchmarkInfo(BenchmarkPtr b, BenchmarkInfoVector& info)
     fieldStructure += std::to_string(*iter) + " bit" + (counter++ < (tupleSize-1) ? ", " : ")");
   info.push_back(std::make_pair("fields", fieldStructure));
 
-  // amount of rules in classifier
+  // number of rules in classifier
   std::string classifierSize(std::to_string(b->rules.size()) + " rules");
   info.push_back(std::make_pair("classifier", classifierSize));
 
-  // amount of explicit or random generated headers
-  std::string amountHeaders = std::to_string(b->getHeaderAmount());
+  // number of explicit or random generated headers
+  std::string numberHeaders = std::to_string(b->getHeaderNumber());
   if (b->generateHeaders) { // random header generation
-    amountHeaders += " randomly generated";
+    numberHeaders += " randomly generated";
   } else {
-    amountHeaders += " items";
+    numberHeaders += " items";
   }
-  info.push_back(std::make_pair("headers", amountHeaders));
+  info.push_back(std::make_pair("headers", numberHeaders));
 
-  info.push_back(std::make_pair( "testruns", std::to_string(b->amountRuns) ));
+  info.push_back(std::make_pair( "testruns", std::to_string(b->numberRuns) ));
 }
 
 void Evaluator::createChronoMeasurements(const BenchmarkResults& res, ChronoEvaluation& chrono) {
@@ -95,24 +95,24 @@ void Evaluator::calcChronoRelMean(ChronoEvaluation& chrono, unsigned int headers
 
 
 void Evaluator::createMemoryStatistics(const BenchmarkResults& res, MemEvaluationGroups& mem) {
-  // get amount of testruns in total
-  unsigned int amountRuns = res.size();
+  // get number of testruns in total
+  unsigned int numberRuns = res.size();
 
   // stop here, if no runs available
-  if (amountRuns == 0) return;
+  if (numberRuns == 0) return;
 
-  // get amount of groups in total
-  unsigned int amountGroups = res[0]->memRes.size();
+  // get number of groups in total
+  unsigned int numberGroups = res[0]->memRes.size();
 
   // iterate over memory-groups
-  for (unsigned int group = 0; group < amountGroups; ++group) {
+  for (unsigned int group = 0; group < numberGroups; ++group) {
     std::unique_ptr<MemEvaluationGroup> evalGroupPtr(new MemEvaluationGroup);
     
-    // get amount of memory values in current group
-    unsigned int amountValues = res[0]->memRes[group]->allocBytes.size();
+    // get number of memory values in current group
+    unsigned int numberValues = res[0]->memRes[group]->allocBytes.size();
 
     // iterate over memory-values in one group
-    for (unsigned int valIdx = 0; valIdx < amountValues; ++valIdx) {
+    for (unsigned int valIdx = 0; valIdx < numberValues; ++valIdx) {
       // create statistic series with memory-values of one specific group
       Series<size_t> sAllocBytes;
       Series<size_t> sAllocMaxBytes;
@@ -130,7 +130,7 @@ void Evaluator::createMemoryStatistics(const BenchmarkResults& res, MemEvaluatio
       unsigned int headerCount = res[0]->memRes[group]->allocBytes[valIdx].first;
 
       // iterate over testruns
-      for (unsigned int runIdx = 0; runIdx < amountRuns; ++runIdx) {
+      for (unsigned int runIdx = 0; runIdx < numberRuns; ++runIdx) {
         size_t allocBytes = res[runIdx]->memRes[group]->allocBytes[valIdx].second;
         size_t allocMaxBytes = res[runIdx]->memRes[group]->allocMaxBytes[valIdx].second;
         size_t accBytes = res[runIdx]->memRes[group]->accBytes[valIdx].second;
@@ -192,14 +192,14 @@ bool Evaluator::compareIndices(const BenchmarkResults& res) {
   // trivial case: no testruns
   if (res.size() == 0) return true;
 
-  // iterate over all runs and compare amount of indices
-  unsigned int amountIndices = res[0]->indices.size();
+  // iterate over all runs and compare number of indices
+  unsigned int numberIndices = res[0]->indices.size();
   for (BenchmarkResults::const_iterator trItr(res.cbegin() + 1); trItr != res.cend(); ++trItr) {
-    if ((*trItr)->indices.size() != amountIndices) return false;
+    if ((*trItr)->indices.size() != numberIndices) return false;
   }
 
   // compare indices of first testrun with each other run
-  for (unsigned int i = 0; i < amountIndices; ++i) {
+  for (unsigned int i = 0; i < numberIndices; ++i) {
     for (BenchmarkResults::const_iterator trItr(res.cbegin() + 1); trItr != res.cend(); ++trItr) {
       if (res[0]->indices[i] != (*trItr)->indices[i]) return false;
     }
@@ -208,10 +208,10 @@ bool Evaluator::compareIndices(const BenchmarkResults& res) {
   return true;
 }
 
-void Evaluator::createHistogram(const Generic::RuleIndexSet& indices, unsigned int amountRules, std::vector<HistogramPair>& hist) {
-  if (amountRules == 0) return; // no rules, no histogram
+void Evaluator::createHistogram(const Generic::RuleIndexSet& indices, unsigned int numberRules, std::vector<HistogramPair>& hist) {
+  if (numberRules == 0) return; // no rules, no histogram
 
-  Histogram h(amountRules);
+  Histogram h(numberRules);
 
   // iterate over all indices
   for (Generic::RuleIndexSet::const_iterator iter(indices.cbegin()); iter != indices.cend(); ++iter) {
@@ -233,7 +233,7 @@ void Evaluator::evalBenchmark(BenchmarkPtr b, const BenchmarkResults& res, Bench
   createChronoStatistics(eval.chrono);
 
   // Chronograph: relative mean values
-  calcChronoRelMean(eval.chrono, b->getHeaderAmount(), b->getRuleAmount());
+  calcChronoRelMean(eval.chrono, b->getHeaderNumber(), b->getRuleNumber());
 
   // Memory: mean values over all testruns + additional field
   createMemoryStatistics(res, eval.mem);

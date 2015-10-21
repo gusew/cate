@@ -144,10 +144,10 @@ TEST(test_memmanager_groups)
   TestItem item1(0xa110c, 0xaccA11, 0xacc123, 64, 4);
   TestItem item2(16, 32, 2, 16, 1);
 
-  assert_equal(m.groupGetAmount(), (unsigned)1, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)1, SPOT);
 
   m.groupCreate();
-  assert_equal(m.groupGetAmount(), (unsigned)2, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)2, SPOT);
   
   m.reg(item1);
   
@@ -177,7 +177,7 @@ TEST(test_memmanager_groups)
   assert_equal(msnap->accWriteCount, (unsigned)4, SPOT);
 
   m.groupSwitch(0);
-  assert_equal(m.groupGetAmount(), (unsigned)2, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)2, SPOT);
   
   m.reg(item2);
  
@@ -480,7 +480,7 @@ TEST(test_memmanager_reset)
 
   m.reset();
 
-  assert_equal(m.groupGetAmount(), (unsigned)1, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)1, SPOT);
   assert_equal(m.groupGetCurrentId(), (unsigned)0, SPOT);
   assert_equal(m.getCurrentHeaderCount(), (unsigned)0, SPOT);
   assert_equal(m.getHistorySize(), (unsigned)0, SPOT);
@@ -518,7 +518,7 @@ TEST(test_memmanager_reset)
   m.checkpoint(8);
   assert_equal(m.getCurrentHeaderCount(), (unsigned)50, SPOT);
   assert_equal(m.getHistorySize(), (unsigned)2, SPOT);
-  assert_equal(m.groupGetAmount(), (unsigned)3, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)3, SPOT);
 
   m.getCurrentTotal(msnap);
   assert_equal(msnap->allocBytes, (unsigned)0, SPOT);
@@ -530,7 +530,7 @@ TEST(test_memmanager_reset)
 
   m.reset();
 
-  assert_equal(m.groupGetAmount(), (unsigned)1, SPOT);
+  assert_equal(m.groupGetNumber(), (unsigned)1, SPOT);
   assert_equal(m.groupGetCurrentId(), (unsigned)0, SPOT);
   assert_equal(m.getCurrentHeaderCount(), (unsigned)0, SPOT);
   assert_equal(m.getHistorySize(), (unsigned)0, SPOT);

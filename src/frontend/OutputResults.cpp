@@ -313,7 +313,7 @@ void OutputResults::_jsArray2(std::ostringstream& str, const std::vector<std::st
 }
 
 void OutputResults::_htmlChronoPlots(std::ostringstream& html, std::ostringstream& data, std::ostringstream& plots, const ChronoEvaluation& chrono) const {
-  unsigned int divWidth = 200 + chrono.categoryNames.size() * 20; // make dependend on amount
+  unsigned int divWidth = 200 + chrono.categoryNames.size() * 20; // make dependend on number
 
   // place plotboxes in html
   html << "<h3>Plots</h3><h4>Comparison of chronograph-categories</h4>" <<
@@ -435,7 +435,7 @@ void OutputResults::_htmlMemPlots(std::ostringstream& html, std::ostringstream& 
     htmlAccess << "<h4>Accessed Memory in Bytes (Group-ID " << groupId << ")</h4>"<<
       "<div id=\"" << divAccess << "\" style=\"margin-top:20px; margin-left:20px; width:" << std::to_string(divWidth) << "px; height:400px;\"></div>" << std::endl;
 
-    htmlAccess << "<h4>Amount of Memory accesses (Group-ID " << groupId << ")</h4>"<<
+    htmlAccess << "<h4>Number of Memory accesses (Group-ID " << groupId << ")</h4>"<<
       "<div id=\"" << divAccessCnt << "\" style=\"margin-top:20px; margin-left:20px; width:" << std::to_string(divWidth) << "px; height:400px;\"></div>" << std::endl;
 
     _jsLinePlot1(plots, divAccess, varNameAccess,
@@ -443,8 +443,8 @@ void OutputResults::_htmlMemPlots(std::ostringstream& html, std::ostringstream& 
       "Processed headers", "Accessed Bytes");
    
     _jsLinePlot1(plots, divAccessCnt, varNameAccessCnt,
-      "Amount of memory accesses for group " + groupId, varNameTicks, 
-      "Processed headers", "Amount of accesses");
+      "Number of memory accesses for group " + groupId, varNameTicks, 
+      "Processed headers", "Number of accesses");
    
     for (MemStatCategory::const_iterator iter((*groupItr)->accBytes.cbegin()); iter != (*groupItr)->accBytes.cend(); ++iter) {
       dataItems1.push_back(std::to_string(iter->first));
@@ -474,7 +474,7 @@ void OutputResults::_htmlMemPlots(std::ostringstream& html, std::ostringstream& 
     htmlRdWr << "<h4>Read and Write Memory-Accesses in Bytes (Group-ID " << groupId << ")</h4>"<<
       "<div id=\"" << divRwBytes << "\" style=\"margin-top:20px; margin-left:20px; width:" << std::to_string(divWidth) << "px; height:400px;\"></div>" << std::endl;
 
-    htmlRdWr << "<h4>Amount of Read and Write Memory-Accesses (Group-ID " << groupId << ")</h4>"<<
+    htmlRdWr << "<h4>Number of Read and Write Memory-Accesses (Group-ID " << groupId << ")</h4>"<<
       "<div id=\"" << divRwCount << "\" style=\"margin-top:20px; margin-left:20px; width:" << std::to_string(divWidth) << "px; height:400px;\"></div>" << std::endl;
 
     _jsLinePlot2(plots, divRwBytes, varNameReadBytes, varNameWriteBytes,
@@ -484,8 +484,8 @@ void OutputResults::_htmlMemPlots(std::ostringstream& html, std::ostringstream& 
 
     _jsLinePlot2(plots, divRwCount, varNameReadCount, varNameWriteCount,
       "read", "write", 
-      "Amount of Memory-Accesses (read/write) for group " + groupId, varNameTicks, 
-      "Processed headers", "Amount of Accesses");
+      "Number of Memory-Accesses (read/write) for group " + groupId, varNameTicks, 
+      "Processed headers", "Number of Accesses");
    
     for (MemStatCategory::const_iterator iter((*groupItr)->accReadBytes.cbegin()); iter != (*groupItr)->accReadBytes.cend(); ++iter) {
       dataItems1.push_back(std::to_string(iter->first));
@@ -531,13 +531,13 @@ void OutputResults::_htmlHistogram(const std::string& id, std::ostringstream& ht
   // place plotbox in html
   std::string divHist = "hist_matches";
   std::string varNameHist = "hist_data";
-  unsigned int divWidth = 200 + hist.size() * 4; // make dependend on amount of histogram-bins
+  unsigned int divWidth = 200 + hist.size() * 4; // make dependend on number of histogram-bins
   html << "<div id=\"" << divHist << "\" style=\"margin-top:20px; margin-left:20px; width:" << std::to_string(divWidth) << "px; height:400px;\"></div>" << "<hr />" << std::endl;
 
   // create plot-code
   _jsHistogramPlot(plots, divHist, varNameHist, 
     "Histogram of matched headers per rule", 
-    "Rule index", "amount of matched headers");
+    "Rule index", "number of matched headers");
 
   // create plot-data
   std::vector<std::string> arrData1, arrData2; 
@@ -567,7 +567,7 @@ void OutputResults::_csvChronograph(std::ostringstream& str, const ChronoEvaluat
   // sanity checks
   if (chronoCategories > chrono.measurements.size() || 
     chronoCategories > chrono.statistics.size())
-    throw "The amount of Chronograph category names doesn't match amount of entries in evaluation data.";
+    throw "The number of Chronograph category names doesn't match number of entries in evaluation data.";
 
   // continue, if any categories available
   if (chronoCategories > 0) {
@@ -628,10 +628,10 @@ void OutputResults::_csvMemory(std::ostringstream& str, const MemEvaluationGroup
   // iterate over each group
   unsigned int groupCounter = 0;
   for (MemEvaluationGroups::const_iterator groupItr(mem.cbegin()); groupItr != mem.cend(); ++groupItr) {
-    unsigned int amountValues = (*groupItr)->allocBytes.size();
+    unsigned int numberValues = (*groupItr)->allocBytes.size();
    
     // iterate over all values in the group
-    for (unsigned int valIdx = 0; valIdx < amountValues; ++valIdx) {
+    for (unsigned int valIdx = 0; valIdx < numberValues; ++valIdx) {
       str << std::to_string(groupCounter) << "; ";
       str << std::to_string((*groupItr)->allocBytes[valIdx].first) << "; ";
 

@@ -51,10 +51,10 @@ public:
   void dereg(RegistryItem& item) override;
 
   /**
-	 * Update the amount of already processed packet header data and therefore
+	 * Update the number of already processed packet headers and therefore
 	 * create a new memory-snapshot and keep previous snapshot in trace.
 	 *
-	 * @param headers amount of header data that have been processed
+	 * @param headers number of headers that have been processed
 	 */
   void checkpoint(unsigned int headers);
 
@@ -71,8 +71,8 @@ public:
    */
   void groupSwitch(unsigned int id);
 
-  /** Returns the current amount of groups in total. */
-  inline unsigned int groupGetAmount() { return _groupsTotal; }
+  /** Returns the current number of groups in total. */
+  inline unsigned int groupGetNumber() { return _groupsTotal; }
 
   /** Return the currently active group id. */
   inline unsigned int groupGetCurrentId() { return _currentGroupId; }
@@ -95,7 +95,7 @@ public:
    */
   void getCurrentByGroup(unsigned int groupId, MemGroupSnapshotPtr& result) const;
 
-  /** Returns amount of already stored snapshots from earlier checkpoints. */
+  /** Returns number of already stored snapshots from earlier checkpoints. */
   inline unsigned int getHistorySize() const { return _history.size(); }
 
   /**

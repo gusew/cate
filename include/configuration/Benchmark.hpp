@@ -16,7 +16,7 @@ typedef std::vector<unsigned int> FieldStructureSet;
 
 /**
  * Represents one benchmark with a certain algorithm, a ruleset and
- * headers as input. A benchmark is repeated, if amount of runs is 
+ * headers as input. A benchmark is repeated, if number of runs is 
  * greater than one.
  */
 struct Benchmark {
@@ -39,15 +39,15 @@ struct Benchmark {
   // RandomRuleConfiguration rndRuleConfig;
 
   /** Defines how often the benchmark will be run. */
-  unsigned int amountRuns;
+  unsigned int numberRuns;
 
-  Benchmark() : algParameter(), fieldStructure(), generateHeaders(false), headers(), rndHeaderConfig(), generateRules(false), rules(), amountRuns(1) {}
+  Benchmark() : algParameter(), fieldStructure(), generateHeaders(false), headers(), rndHeaderConfig(), generateRules(false), rules(), numberRuns(1) {}
 
-  /** Returns the total amount of headers (random or explicit). */
-  inline unsigned int getHeaderAmount() const { return (generateHeaders ? rndHeaderConfig.totalHeaders : headers.size()); }
+  /** Returns the total number of headers (random or explicit). */
+  inline unsigned int getHeaderNumber() const { return (generateHeaders ? rndHeaderConfig.totalHeaders : headers.size()); }
 
-  /** Returns the total amount of rules (now: just explicit). */
-  inline unsigned int getRuleAmount() const { return (generateRules ? 0 : rules.size()); }
+  /** Returns the total number of rules (now: just explicit). */
+  inline unsigned int getRuleNumber() const { return (generateRules ? 0 : rules.size()); }
 };
 
 /** Shortcut for a shared-ptr on a Benchmark-instance. */

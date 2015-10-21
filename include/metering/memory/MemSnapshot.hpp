@@ -14,10 +14,10 @@ namespace Memory {
 struct MemGroupSnapshot {
   size_t allocBytes; // total currently allocated bytes
   size_t allocMaxBytes; // maximum value of allocated bytes
-  size_t accBytes; // total amount of accessed bytes
-  size_t accCount; // amount of accesses (+1 on each)
-  size_t accWriteBytes; // amount of bytes on writes access
-  size_t accWriteCount; // amount of write accesses (+1 on each)
+  size_t accBytes; // total number of accessed bytes
+  size_t accCount; // number of accesses (+1 on each)
+  size_t accWriteBytes; // number of bytes on writes access
+  size_t accWriteCount; // number of write accesses (+1 on each)
 
   MemGroupSnapshot() : allocBytes(0), allocMaxBytes(0), accBytes(0), accCount(0), accWriteBytes(0), accWriteCount(0) {}
 
@@ -26,9 +26,9 @@ struct MemGroupSnapshot {
    *
    * @param allocB allocated bytes by instance
    * @param accB accessed bytes by instance
-   * @param accCnt amount of accesses in numbers
-   * @param accWriteB amount of bytes written
-   * @param accWriteCnt amount of write accesses in numbers
+   * @param accCnt number of accesses
+   * @param accWriteB number of bytes written
+   * @param accWriteCnt number of write accesses
    */
    void update(size_t allocB, size_t accB, size_t accCnt, size_t accWriteB, size_t accWriteCnt);
    
@@ -65,9 +65,9 @@ struct MemSnapshot {
    * @param groupId id of the group to update
    * @param allocB allocated bytes by instance
    * @param accB accessed bytes by instance
-   * @param accCnt amount of accesses in numbers
-   * @param accWriteB amount of bytes written
-   * @param accWriteCnt amount of write accesses in numbers
+   * @param accCnt number of accesses
+   * @param accWriteB number of bytes written
+   * @param accWriteCnt number of write accesses 
    */
   void groupUpdate(unsigned int groupId, size_t allocB, size_t accB, size_t accCnt, size_t accWriteB, size_t accWriteCnt); 
 };

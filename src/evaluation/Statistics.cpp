@@ -1,7 +1,7 @@
 #include <evaluation/Statistics.hpp>
 
-Histogram::Histogram(unsigned int amountBins) : _bins() {
-  for (unsigned int id = 0; id < amountBins; ++id) {
+Histogram::Histogram(unsigned int numberBins) : _bins() {
+  for (unsigned int id = 0; id < numberBins; ++id) {
     std::unique_ptr<HistogramBin> ptr(new HistogramBin(id));
     _bins.push_back(std::move(ptr));
   }

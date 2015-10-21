@@ -64,7 +64,7 @@ void MemManager::getCurrentTotal(MemGroupSnapshotPtr& result) const {
 }
 
 void MemManager::getCurrentByGroup(unsigned int groupId, MemGroupSnapshotPtr& result) const {
-  if (groupId >= _groupsTotal) throw "Given group id exceeds total amount of groups (MemManager::getCurrentByGroup).";
+  if (groupId >= _groupsTotal) throw "Given group id exceeds total number of groups (MemManager::getCurrentByGroup).";
 
   // create new group for result of aggregation
   result.reset(new MemGroupSnapshot);
@@ -93,7 +93,7 @@ void MemManager::getPastRecordTotal(unsigned int historyIdx, MemGroupSnapshotPtr
 }
 
 void MemManager::getPastRecordByGroup(unsigned int historyIdx, unsigned int groupId, MemGroupSnapshotPtr& result) const {
-  if (groupId >= _groupsTotal) throw "Given group id exceeds total amount of groups (MemManager::getPastRecordByGroup).";
+  if (groupId >= _groupsTotal) throw "Given group id exceeds total number of groups (MemManager::getPastRecordByGroup).";
   if (historyIdx >= _history.size()) throw "Given history index exceeds total history size (MemManager::getPastRecordTotal).";
 
   // create new group for result of aggregation

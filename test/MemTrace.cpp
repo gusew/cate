@@ -142,7 +142,7 @@ TEST(test_memtrace_usrtype)
   { // limit scope of var
     MemTrace<MemManager> val;
     val.groupCreate();
-    assert_equal(val.groupGetAmount(), (unsigned)2, SPOT);
+    assert_equal(val.groupGetNumber(), (unsigned)2, SPOT);
 
     assert_allocBytes(sizeof(MemManager), manager, SPOT);
     assert_allocMax(sizeof(MemManager), manager, SPOT);
