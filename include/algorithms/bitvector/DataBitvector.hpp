@@ -305,8 +305,8 @@ public:
 
   /**
    * Add a given range with the bit-position to the container. Before
-   * the range is inserted, possible overlapping ranges are merged
-   * with new range by 
+   * the range is inserted, overlappings with already existing ranges
+   * are detected and overlapping ranges are split into parts.
    *
    * @param min minimum value of range to add
    * @param max maximum value of range to add
