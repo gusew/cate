@@ -71,3 +71,12 @@ You can execute all available unit tests with the following makefile-targets:
 
         $ make utest_all_algs
 
+
+## Publications
+
+**Main Paper**: if your work uses or extends CATE, please refer to this paper
+
+> [CATE: An Open and Highly Configurable Framework for Performance Evaluation of Packet Classification Algorithms](http://informs-sim.org)
+> W. Gusew, S. Hager, and B. Scheuermann, in Proceedings of Winter Simulation Conference, Huntington Beach, USA, Dec 2015
+>
+> [BibTex](http://ti-publications.informatik.hu-berlin.de/publications/194/?bibtex) · [Presentation Slides](http://amor.cms.hu-berlin.de/~gusewwly/files/cate-wsc15-slides.pdf)
