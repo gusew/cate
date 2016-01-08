@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/gusew/cate/blob/master/documentation/logo-cate.png" width="300" height="112"/>
+</p>
+
 # Classification Algorithms Testing Environment
 CATE is a framework for consistently and reproducibly extracting the key performance characteristics of classification algorithms, such as memory footprint and matching speed. Classification algorithms are utilized in network packet classification which is an essential part of various services of today's packet-switched networks, like, for instance, firewalling, policy routing, intrusion detection, and traffic rate limiting.
 
