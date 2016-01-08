@@ -77,13 +77,13 @@ StorageT Bitvector::getStorage(unsigned int position) const {
 void Bitvector::setBit(unsigned int position) {
   unsigned int bitpos;
   MemStorageT& value = _getStorageReference(position, bitpos);
-  value |= (StorageT)(1 << bitpos);
+  value |= (StorageT)1 << bitpos;
 }
 
 bool Bitvector::getBit(unsigned int position) {
   unsigned int bitpos;
   MemStorageT& value = _getStorageReference(position, bitpos);
-  return (value & (StorageT)(1 << bitpos)) > 0;
+  return (value & ((StorageT)1 << bitpos)) > 0;
 }
 
 unsigned long int Bitvector::getFirstSetBit() const {
@@ -94,7 +94,7 @@ unsigned long int Bitvector::getFirstSetBit() const {
       
       // check each bit
       for (unsigned int bit = 0; bit < _getSizeStorageT(); ++bit) {
-        if ( (value & (StorageT)(1 << bit)) > 0) { // first set bit
+        if ( (value & ((StorageT)1 << bit)) > 0) { // first set bit
           return (bit + i*_getSizeStorageT());
         }
       }
