@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/gusew/cate/blob/master/documentation/logo-cate.png" width="300" height="112"/>
+<img src="https://github.com/gusew/cate/blob/gh-pages/images/logo-cate.png" width="300" height="112"/>
 </p>
 
 # Classification Algorithms Testing Environment
