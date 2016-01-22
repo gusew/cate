@@ -83,7 +83,6 @@ void Bitvector4tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rule
 	if (!indices.empty()) indices.clear(); // if caller forgot to empty set
 
   Bitvector bv0(_rules.size());
-  Bitvector bv1(_rules.size());
 
   Range<uint32_t> searchKey32(0, 0);
 
@@ -96,25 +95,19 @@ void Bitvector4tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rule
 
     searchKey32.min = tpl.v1;
     searchKey32.max = tpl.v1;
-    bv0 = _dim1->search(searchKey32);
+    bv0 = _dim1->search(searchKey32); // initial copy
     
     searchKey32.min = tpl.v2;
     searchKey32.max = tpl.v2;
-    bv1 = _dim2->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim2->search(searchKey32);
 
     searchKey32.min = tpl.v3;
     searchKey32.max = tpl.v3;
-    bv1 = _dim3->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim3->search(searchKey32);
 
     searchKey32.min = tpl.v4;
     searchKey32.max = tpl.v4;
-    bv1 = _dim4->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim4->search(searchKey32);
 
     matchIndex = bv0.getFirstSetBit();
     _chronomgr->stop("classify");

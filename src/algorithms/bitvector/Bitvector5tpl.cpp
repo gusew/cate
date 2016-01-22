@@ -85,7 +85,7 @@ void Bitvector5tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rule
 	if (!indices.empty()) indices.clear(); // if caller forgot to empty set
 
   Bitvector bv0(_rules.size());
-  Bitvector bv1(_rules.size());
+  //Bitvector bv1(_rules.size());
 
   Range<uint32_t> searchKey32(0, 0);
   Range<uint16_t> searchKey16(0, 0);
@@ -100,31 +100,23 @@ void Bitvector5tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rule
 
     searchKey32.min = tpl.addrSrc;
     searchKey32.max = tpl.addrSrc;
-    bv0 = _dimIpSrc->search(searchKey32);
+    bv0 = _dimIpSrc->search(searchKey32); // initial copy
     
     searchKey32.min = tpl.addrDest;
     searchKey32.max = tpl.addrDest;
-    bv1 = _dimIpDest->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dimIpDest->search(searchKey32); // operate on copy
 
     searchKey16.min = tpl.portSrc;
     searchKey16.max = tpl.portSrc;
-    bv1 = _dimPortSrc->search(searchKey16);
-
-    bv0 &= bv1;
+    bv0 &= _dimPortSrc->search(searchKey16);
 
     searchKey16.min = tpl.portDest;
     searchKey16.max = tpl.portDest;
-    bv1 = _dimPortDest->search(searchKey16);
-
-    bv0 &= bv1;
+    bv0 &= _dimPortDest->search(searchKey16);
 
     searchKey8.min = tpl.protocol;
     searchKey8.max = tpl.protocol;
-    bv1 = _dimProtocol->search(searchKey8);
-
-    bv0 &= bv1;
+    bv0 &= _dimProtocol->search(searchKey8);
 
     matchIndex = bv0.getFirstSetBit();
     _chronomgr->stop("classify");

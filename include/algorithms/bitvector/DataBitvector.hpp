@@ -375,11 +375,10 @@ public:
   }
 
   /** 
-   * Search for a matching range with given value and fetch the 
-   * associated bitvector as a copy.
+   * Search for a matching range with given value and fetch the associated bitvector as a reference.
    *
    * @param key a range, which might lie inside one of the ranges
-   * @return copy of the associated bitvector or a vector with zeros, if not found
+   * @return reference to the associated bitvector or a vector with zeros, if not found
    */
   const Bitvector& search(const Range<T>& key) const {
     if (key.min < _domainMin || key.max > _domainMax)

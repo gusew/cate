@@ -96,7 +96,6 @@ void Bitvector10tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rul
 	if (!indices.empty()) indices.clear(); // if caller forgot to empty set
 
   Bitvector bv0(_rules.size());
-  Bitvector bv1(_rules.size());
 
   Range<uint32_t> searchKey32(0, 0);
 
@@ -109,61 +108,43 @@ void Bitvector10tpl::classify(const Generic::PacketHeaderSet& data, Generic::Rul
 
     searchKey32.min = tpl.v1;
     searchKey32.max = tpl.v1;
-    bv0 = _dim1->search(searchKey32);
+    bv0 = _dim1->search(searchKey32); // initial copy
     
     searchKey32.min = tpl.v2;
     searchKey32.max = tpl.v2;
-    bv1 = _dim2->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim2->search(searchKey32);
 
     searchKey32.min = tpl.v3;
     searchKey32.max = tpl.v3;
-    bv1 = _dim3->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim3->search(searchKey32);
 
     searchKey32.min = tpl.v4;
     searchKey32.max = tpl.v4;
-    bv1 = _dim4->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim4->search(searchKey32);
 
     searchKey32.min = tpl.v5;
     searchKey32.max = tpl.v5;
-    bv1 = _dim5->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim5->search(searchKey32);
 
     searchKey32.min = tpl.v6;
     searchKey32.max = tpl.v6;
-    bv1 = _dim6->search(searchKey32);
-    
-    bv0 &= bv1;
+    bv0 &= _dim6->search(searchKey32);
     
     searchKey32.min = tpl.v7;
     searchKey32.max = tpl.v7;
-    bv1 = _dim7->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim7->search(searchKey32);
 
     searchKey32.min = tpl.v8;
     searchKey32.max = tpl.v8;
-    bv1 = _dim8->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim8->search(searchKey32);
 
     searchKey32.min = tpl.v9;
     searchKey32.max = tpl.v9;
-    bv1 = _dim9->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim9->search(searchKey32);
 
     searchKey32.min = tpl.v10;
     searchKey32.max = tpl.v10;
-    bv1 = _dim10->search(searchKey32);
-
-    bv0 &= bv1;
+    bv0 &= _dim10->search(searchKey32);
 
     matchIndex = bv0.getFirstSetBit();
     _chronomgr->stop("classify");
