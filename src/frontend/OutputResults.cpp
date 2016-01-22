@@ -551,6 +551,14 @@ void OutputResults::_htmlHistogram(const std::string& id, std::ostringstream& ht
   arrData2.clear();
 }
 
+void OutputResults::_benchmarkInfo(std::ostringstream& str, const std::string& id, const BenchmarkInfoVector& info) const {
+  str << "Benchmark-ID; " << id << std::endl;
+
+  for (BenchmarkInfoVector::const_iterator iter(info.cbegin()); iter != info.cend(); ++iter) {
+    str << iter->first << "; " << iter->second << std::endl;
+  }
+}
+
 void OutputResults::_writeFile(std::ostringstream& str, const std::string& filename) const {
   try {
     std::ofstream outFile(filename, std::ofstream::out);
@@ -696,22 +704,26 @@ void OutputResults::headers(const Generic::PacketHeaderSet& headers) const {
   }
 }
 void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
-  std::ostringstream renderHtml; // for the html-output
-  std::ostringstream renderData; // for js-data output
-  std::ostringstream renderPlots; // for js-jqplot configuration
+  std::ostringstream composeHtml; // for the html-output
+  std::ostringstream composeData; // for js-data output
+  std::ostringstream composePlots; // for js-jqplot configuration
+  std::ostringstream composeInfo; // for general key-value info
  
   // generate and output html-summary with plots
-  _htmlHeader(renderHtml);
-  _jsSetTheme(renderPlots);
-  _htmlInfo(renderHtml, _benchmark->id, eval.benchmarkInfo);
-  _htmlChronoTable(renderHtml, _benchmark->id, eval.chrono);
-  _htmlChronoPlots(renderHtml, renderData, renderPlots, eval.chrono);
-  _htmlMemTables(renderHtml, _benchmark->id, eval.mem);
-  _htmlMemPlots(renderHtml, renderData, renderPlots, eval.mem);
+  _htmlHeader(composeHtml);
+  _jsSetTheme(composePlots);
+  _htmlInfo(composeHtml, _benchmark->id, eval.benchmarkInfo);
+  _htmlChronoTable(composeHtml, _benchmark->id, eval.chrono);
+  _htmlChronoPlots(composeHtml, composeData, composePlots, eval.chrono);
+  _htmlMemTables(composeHtml, _benchmark->id, eval.mem);
+  _htmlMemPlots(composeHtml, composeData, composePlots, eval.mem);
   if (eval.allIndicesMatch) 
-    _htmlHistogram(_benchmark->id, renderHtml, renderData, renderPlots, eval.histogram);
-  _htmlFooter(renderHtml, _benchmark->id);
-  _jsPlotFooter(renderPlots);
+    _htmlHistogram(_benchmark->id, composeHtml, composeData, composePlots, eval.histogram);
+  _htmlFooter(composeHtml, _benchmark->id);
+  _jsPlotFooter(composePlots);
+
+  // generate key-value pairs with general information on benchmark
+  _benchmarkInfo(composeInfo, _benchmark->id, eval.benchmarkInfo);
 
   // build filenames for summary-files to output
   std::string filePrefix = _resultsDir + _benchmark->id; 
@@ -722,11 +734,13 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
   std::string fileCsvChrono = filePrefix + "_chrono.csv"; 
   std::string fileCsvMatches = filePrefix + "_matches.csv"; 
   std::string fileCsvMem = filePrefix + "_memory.csv"; 
+  // and some machine readable benchmark information
+  std::string fileInfo = filePrefix + "_info.csv";
 
   // write text content to files
-  _writeFile(renderHtml, fileHtml);
-  _writeFile(renderData, fileData);
-  _writeFile(renderPlots, filePlot);
+  _writeFile(composeHtml, fileHtml);
+  _writeFile(composeData, fileData);
+  _writeFile(composePlots, filePlot);
   filenameNotification(fileHtml, "benchmark-summary");
 
   // copy all dependency-files to result-dir
@@ -751,5 +765,8 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
   }
   else
     std::cout << "Matching indices between headers and rules were not consistent over all testruns. Please check the classification algorithm!" << std::endl;
+
+  // output general benchmark information to file
+  _writeFile(composeInfo, fileInfo);
 }
 

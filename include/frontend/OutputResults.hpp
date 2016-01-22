@@ -73,6 +73,9 @@ class OutputResults {
   /** Write js-code for a 2-dim. array-declaration. */
   void _jsArray2(std::ostringstream& str, const std::vector<std::string>& items1, const std::vector<std::string>& items2, const std::string& name) const;
 
+  /** Generate a table with general info on benchmark. */
+  void _benchmarkInfo(std::ostringstream& str, const std::string& id, const BenchmarkInfoVector& info) const;
+
   /** Write the content out to a specified file. */
   void _writeFile(std::ostringstream& str, const std::string& filename) const;
 
