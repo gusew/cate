@@ -180,12 +180,12 @@ void LuaInterpreter::fetchBenchmark(lua_State* L, int index) {
       l_message("No headers for benchmark found.");
       errorOccurred = true;
     }
-    else if (key == 6 && lua_isnumber(L, valIdx)) { // amount of runs
-      configurator->setAmountRuns(lua_tounsigned(L, valIdx));
+    else if (key == 6 && lua_isnumber(L, valIdx)) { // number of runs
+      configurator->setNumberRuns(lua_tounsigned(L, valIdx));
     }
     else if (key == 6) {
-      l_message("Amount of runs is not defined. Set default value of 1 run.");
-      configurator->setAmountRuns(1);
+      l_message("Number of runs is not defined. Set default value of 1 run.");
+      configurator->setNumberRuns(1);
     }
 
     lua_pop(L, 1); // remove value, keep key for next iteration
@@ -366,8 +366,8 @@ void LuaInterpreter::iterHeaderDefinition(lua_State* L, int index) {
       iterExplicitHeaders(L, tblIdx);
     }
     else if (key == 2 && isRandomHeader && lua_isnumber(L, tblIdx)) { 
-      // amount to generate
-      configurator->setRandomHeaderAmount(lua_tounsigned(L, tblIdx));
+      // number of headers to generate
+      configurator->setRandomHeaderNumber(lua_tounsigned(L, tblIdx));
     } 
     else if (key == 3 && isRandomHeader && lua_isboolean(L, tblIdx)) {
       // output headers to file

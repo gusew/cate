@@ -105,11 +105,11 @@ void LuaConfigurator::addHeaderValue(std::string& value) {
   _config->getBenchmarkSet().back()->headers.back()->push_back(std::move(headerAtom));
 }
 
-void LuaConfigurator::setRandomHeaderAmount(unsigned int amount) {
-  if (amount > 0)
+void LuaConfigurator::setRandomHeaderNumber(unsigned int number) {
+  if (number > 0)
     _config->getBenchmarkSet().back()->generateHeaders = true;
 
-  _config->getBenchmarkSet().back()->rndHeaderConfig.totalHeaders = amount;
+  _config->getBenchmarkSet().back()->rndHeaderConfig.totalHeaders = number;
 }
 
 void LuaConfigurator::setRandomHeaderOutput(bool outputToFile) {
@@ -205,9 +205,9 @@ void LuaConfigurator::addDistributionPareto(unsigned int seed, double scale, dou
   _pushBackRandomDistribution(seed, std::move(dist));
 }
 
-/*** Handle amount of runs and path string. */
-void LuaConfigurator::setAmountRuns(unsigned int amount) {
-  _config->getBenchmarkSet().back()->amountRuns = amount;
+/*** Handle number of runs and path string. */
+void LuaConfigurator::setNumberRuns(unsigned int number) {
+  _config->getBenchmarkSet().back()->numberRuns = number;
 }
 
 void LuaConfigurator::makeFullRelativePath(const std::string& postfix, std::string& result) {

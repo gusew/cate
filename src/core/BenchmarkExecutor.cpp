@@ -112,10 +112,10 @@ bool BenchmarkExecutor::execute() {
   // set algorithm parameters
   _algWrapper->getAlgorithm()->setParameters(_benchmark->algParameter);
 
-  for (unsigned int i = 0; i < _benchmark->amountRuns; ++i) {
+  for (unsigned int i = 0; i < _benchmark->numberRuns; ++i) {
     std::unique_ptr<TestrunResults> runResults(new TestrunResults);
     std::cout << "Run test " << std::to_string(i+1) << " of " << 
-      std::to_string(_benchmark->amountRuns) << std::flush;
+      std::to_string(_benchmark->numberRuns) << std::flush;
     
     // set rule set
     _algWrapper->getAlgorithm()->setRules(_benchmark->rules);

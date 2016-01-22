@@ -49,7 +49,7 @@ public:
   void addHeaderValue(unsigned int value);
   void addHeaderValue(std::string& value);
 
-  void setRandomHeaderAmount(unsigned int amount);
+  void setRandomHeaderNumber(unsigned int number);
   void setRandomHeaderOutput(bool outputToFile);
   void addDistributionConstant(unsigned int value);
   void addDistributionConstant(std::string& value);
@@ -65,7 +65,7 @@ public:
   void addDistributionPareto(unsigned int seed, double scale, double shape, unsigned int offset);
   void addDistributionPareto(unsigned int seed, double scale, double shape, std::string& offset);
 
-  void setAmountRuns(unsigned int amount);
+  void setNumberRuns(unsigned int number);
 
   void makeFullRelativePath(const std::string& postfix, std::string& result);
 };
