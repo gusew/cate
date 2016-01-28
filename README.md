@@ -121,30 +121,30 @@ You can extend the current set of available classification algorithms with your 
 		ALG_MY_HPPS_DIR	= $(ALG_HPPS_DIR)myclassdir/
 		ALG_MY_SRCS_DIR	= $(ALG_SRCS_DIR)myclassdir/
 
-		\# dependencies for the shared library
+		# dependencies for the shared library
 		ALG_MY_OBJ	= $(ALG_OBJ_BASIC) $(ALG_OBJ_TPL) $(ALG_OBJ_DIR)MyClassAlg.o
 
-		\# General targets for building an algorithm's object files
+		# General targets for building an algorithm's object files
 		$(ALG_OBJ_DIR)%.o: $(ALG_MY_SRCS_DIR)%.cpp $(ALG_MY_HPPS_DIR)%.hpp
 			$(MKDIR)
 			$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
-		\# Build a shared library of the classification algorithm
+		# Build a shared library of the classification algorithm
 		$(ALG_LIB_DIR)MyClassAlg.so: $(ALG_MY_OBJ)
 			$(MKDIR)
 			$(CC) $(CFLAGS) $(CSOFLAGS) -I $(INCLUDE) $^ -o $@ $(GMP_BUILD_XXA) $(GMP_BUILD_A)
 
 5. Register the new Makefile in 'cate/make_alg_myclass.mk':
 		
-		\# PLEASE ADD YOUR ALGORITHM IMPLEMENTATION TO THIS LIST:
+		# PLEASE ADD YOUR ALGORITHM IMPLEMENTATION TO THIS LIST:
 		ALG_LIST	= \
-			\# (...)
+			# (...)
 			$(ALG_LIB_DIR)MyClassAlg.so
 
-		\# Makefiles with targets for each algorithm implementation.
+		# Makefiles with targets for each algorithm implementation.
 		include make_alg_common.mk
-		\# (...)
-		\# PLEASE ADD YOUR MAKEFILE FOR YOUR CUSTOM ALGORITHM HERE
+		# (...)
+		# PLEASE ADD YOUR MAKEFILE FOR YOUR CUSTOM ALGORITHM HERE
 		include make_alg_myclass.mk
 
 6. Now, you could actually build your algorithm with
