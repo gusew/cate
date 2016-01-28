@@ -7,6 +7,7 @@
 #include <metering/memory/MemTrace.hpp>
 #include <metering/memory/MemManager.hpp>
 #include <metering/memory/MemTraceRegistry.hpp>
+#include <metering/LogTagManager.hpp>
 #include <configuration/Benchmark.hpp>
 #include <evaluation/Evaluator.hpp>
 #include <evaluation/Results.hpp>
@@ -39,6 +40,8 @@ class BenchmarkExecutor {
   std::shared_ptr<Memory::MemTraceRegistry> _memRegistry;
   /** Smart pointer to an instance of the ChronoManager to use. */
   std::shared_ptr<ChronoManager> _chrono;
+  /** Smart pointer to an instance of the LogTagManager to use. */
+  std::shared_ptr<LogTagManager> _logger;
   
   /** Create an instance of an algorithm by loading the specified library file of an algorithm. */
   bool _loadAlgorithm();
@@ -48,6 +51,9 @@ class BenchmarkExecutor {
 
   /** Create a chronograph manager to measure runtimes. */
   void _setupChronoManager();
+
+  /** Create a log tag manager to support custom log messages. */
+  void _setupLogTagManager();
 
   /** Classify a given header set and return matching indices. */
   void _classifyHeaders(const Generic::PacketHeaderSet& headers, Generic::RuleIndexSet& indices);

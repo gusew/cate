@@ -24,8 +24,13 @@ void BenchmarkExecutor::_setupMemManager() {
 }
 
 void BenchmarkExecutor::_setupChronoManager() {
-  _chrono = std::make_shared<ChronoManager>();;
+  _chrono = std::make_shared<ChronoManager>();
   _algWrapper->getAlgorithm()->setChronoManager(_chrono);
+}
+
+void BenchmarkExecutor::_setupLogTagManager() {
+  _logger = std::make_shared<LogTagManager>();
+  _algWrapper->getAlgorithm()->setLogTagManager(_logger);
 }
 
 void BenchmarkExecutor::_classifyHeaders(const Generic::PacketHeaderSet& headers, Generic::RuleIndexSet& indices) {
@@ -91,6 +96,7 @@ void BenchmarkExecutor::_outputHeadersToFile(const Generic::PacketHeaderSet& hea
 void BenchmarkExecutor::_resetSetup() {
   _memManager->reset();
   _chrono->reset();
+  _logger->reset();
   _algWrapper->getAlgorithm()->reset();
   _resultsHandler.setBenchmark(_benchmark); // create a new filename
 }
@@ -107,8 +113,9 @@ bool BenchmarkExecutor::execute() {
   if (!_loadAlgorithm()) return false; // create algorithm instance
 
   _results.clear(); // remove previous results
-  _setupMemManager(); // setup MemManager
-  _setupChronoManager(); // setup ChronoManager
+  _setupMemManager();
+  _setupChronoManager(); 
+  _setupLogTagManager(); 
   // set algorithm parameters
   _algWrapper->getAlgorithm()->setParameters(_benchmark->algParameter);
 
@@ -126,6 +133,15 @@ bool BenchmarkExecutor::execute() {
     // get results from chrono- and memory-manager
     _chrono->getAllResults(runResults->chronoRes);
     _memManager->getMemResultGroups(runResults->memRes);
+    // copy results from log tag manager
+    for (auto iter = _logger->getTags().cbegin(); iter != _logger->getTags().cend(); ++iter) {
+      std::string logline;
+      (*iter)->getTimeStr(logline);
+      logline.append(" - ");
+      logline.append((*iter)->tag);
+      runResults->logTags.push_back(logline);
+    }
+    
     _results.push_back(std::move(runResults)); // save results
 
     _resetSetup(); // reset for next repetition

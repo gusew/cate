@@ -29,8 +29,11 @@ OBJ_RNDGEN	= \
 	$(CATE_OBJ_DIR)HeaderGenerator.o \
 	$(CATE_OBJ_DIR)RandomHeaderConfiguration.o
 
+OBJ_LOGTAG	= \
+	$(CATE_OBJ_DIR)LogTagManager.o
+
 # all object files for main-program
-OBJFILES	= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) $(OBJ_RNDGEN) \
+OBJFILES	= $(OBJ_MEM) $(OBJ_CHRONO) $(OBJ_DATA) $(OBJ_RNDGEN) $(OBJ_LOGTAG)\
 	$(CATE_OBJ_DIR)main.o \
 	$(CATE_OBJ_DIR)AlgFactory.o \
 	$(CATE_OBJ_DIR)LuaInterpreter.o \
@@ -91,6 +94,10 @@ $(CATE_OBJ_DIR)%.o: $(SRCDIR)metering/memory/%.cpp $(INCLUDE)/metering/memory/%.
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
 $(CATE_OBJ_DIR)%.o: $(SRCDIR)metering/time/%.cpp $(INCLUDE)/metering/time/%.hpp 
+	$(MKDIR)
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
+$(CATE_OBJ_DIR)%.o: $(SRCDIR)metering/%.cpp $(INCLUDE)/metering/%.hpp 
 	$(MKDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 

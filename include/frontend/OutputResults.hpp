@@ -76,6 +76,9 @@ class OutputResults {
   /** Generate a table with general info on benchmark. */
   void _benchmarkInfo(std::ostringstream& str, const std::string& id, const BenchmarkInfoVector& info) const;
 
+  /** Write all logged tags to a separate file. */
+  void _logTags(std::ostringstream& str, const LogTagVector& tags) const;
+
   /** Write the content out to a specified file. */
   void _writeFile(std::ostringstream& str, const std::string& filename) const;
 

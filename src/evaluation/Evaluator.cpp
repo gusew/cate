@@ -221,6 +221,15 @@ void Evaluator::createHistogram(const Generic::RuleIndexSet& indices, unsigned i
   h.getSorted(hist);
 }
 
+void Evaluator::joinLogTags(const BenchmarkResults& res, LogTagVector& tags) {
+  // iterate over all testruns
+  for (BenchmarkResults::const_iterator trItr(res.cbegin()); trItr != res.cend(); ++trItr) {
+    // iterate over all tags
+    for (LogTagVector::const_iterator iter((*trItr)->logTags.cbegin()); iter != (*trItr)->logTags.cend(); ++iter)
+      tags.push_back(*iter);
+  }
+}
+
 void Evaluator::evalBenchmark(BenchmarkPtr b, const BenchmarkResults& res, BenchmarkEvaluation& eval) {
 
   // gain all general information on benchmark and pack into container
@@ -250,6 +259,10 @@ void Evaluator::evalBenchmark(BenchmarkPtr b, const BenchmarkResults& res, Bench
     // Indices: create histogram with distribution on rules
     createHistogram(eval.indices, b->rules.size(), eval.histogram);
   }
+
+  // Log Tags: join all logged entries
+  joinLogTags(res, eval.logTags);
+
 
   // TODO calculate mean of matchings per rule 
 }

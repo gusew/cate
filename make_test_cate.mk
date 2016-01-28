@@ -33,8 +33,12 @@ TEST_SET_9	= $(OBJ_DATA) \
 	$(CATE_OBJ_DIR)Statistics.o \
 	$(TEST_OBJ_DIR)Statistics.o
 
+TEST_SET_10	= $(OBJ_LOGTAG) \
+	$(TEST_OBJ_DIR)LogTagManager.o
+
+
 # all object files for unit tests (algorithms excluded)
-TEST_OBJS	= $(sort $(TEST_SET_1) $(TEST_SET_2) $(TEST_SET_3) $(TEST_SET_4) $(TEST_SET_5) $(TEST_SET_6) $(TEST_SET_7) $(TEST_SET_8) $(TEST_SET_9))
+TEST_OBJS	= $(sort $(TEST_SET_1) $(TEST_SET_2) $(TEST_SET_3) $(TEST_SET_4) $(TEST_SET_5) $(TEST_SET_6) $(TEST_SET_7) $(TEST_SET_8) $(TEST_SET_9) $(TEST_SET_10))
 
 
 .PHONY: utest 

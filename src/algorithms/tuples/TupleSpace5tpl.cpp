@@ -117,6 +117,11 @@ void TupleSpace5tpl::setRules(const Generic::RuleSet& ruleset) {
   std::sort(_maps.begin(), _maps.end(), TupleSpace5tpl::_mapSortFunction);
   _chronomgr->stop("convert classifier");
 
+  // some debug putput
+  _logger->tag("total maps= " + std::to_string(_maps.size()));
+  _logger->tag("total expanded rules= " + std::to_string(_expandRules.size()));
+  _logger->tag("expanded min. index= " + std::to_string(_expandMinIdx));
+
   // set memory-checkpoint
   _mmanager->checkpoint(0);
 }

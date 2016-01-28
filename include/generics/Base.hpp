@@ -7,6 +7,7 @@
 #include <generics/RuleSet.hpp>
 #include <metering/memory/MemManager.hpp>
 #include <metering/time/ChronoManager.hpp>
+#include <metering/LogTagManager.hpp>
 
 /**
  * Base abstract class for all implemented filtering algorithms.
@@ -16,11 +17,14 @@ class Base {
 protected:
   std::shared_ptr<Memory::MemManager> _mmanager;
   std::shared_ptr<ChronoManager> _chronomgr;
+  std::shared_ptr<LogTagManager> _logger;
 
   /** Checks, if MemManager instance is assigned. */
   inline void checkMemMgr() { if (!_mmanager) throw "Set MemManager before using a filtering algorithm."; }
   /** Checks, if ChronoManager instance is assigned. */
   inline void checkChronoMgr() { if (!_chronomgr) throw "Set ChronoManager before using a filtering algorithm."; }
+  /** Checks, if LogTagManager instance is assigned. */
+  inline void checkLogTagMgr() { if (!_logger) throw "Set LogTagManager before using a filtering algorithm."; }
   
 public:
 	virtual ~Base() {};
@@ -82,6 +86,13 @@ public:
    * @param c smart-pointer that points to a created ChronoManager instance.
    */
   inline void setChronoManager(std::shared_ptr<ChronoManager> c) { _chronomgr = c; checkChronoMgr(); }
+
+  /**
+   * Set LogTagManager instance for storing custom log messages for debug or benchmarking.
+   *
+   * @param l smart-pointer that points to a created LogTagManager instance.
+   */
+  inline void setLogTagManager(std::shared_ptr<LogTagManager> l) { _logger = l; checkLogTagMgr(); }
 };
 
 #endif

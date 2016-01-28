@@ -4,18 +4,21 @@
 #include <memory>
 #include <vector>
 #include <utility>
+#include <string>
 #include <metering/time/ChronoManager.hpp>
 #include <metering/memory/MemManager.hpp>
 #include <generics/RuleSet.hpp>
 #include <evaluation/Statistics.hpp>
+
+/** Contains logged tags as strings. */
+typedef std::vector<std::string> LogTagVector;
 
 /** Collects all results of one single testrun of a benchmark. */
 struct TestrunResults {
   ChronoResults chronoRes;
   Memory::MemResultGroups memRes;
   Generic::RuleIndexSet indices;
-
-  TestrunResults() : chronoRes(), memRes(), indices() {}
+  LogTagVector logTags;
 };
 
 /** Contains results of each run of a benchmark. */
@@ -97,6 +100,9 @@ struct BenchmarkEvaluation {
 
   /** Contains data to produce a histogram with index-rule matches (only if all indices match between testruns). */
   std::vector<HistogramPair> histogram;
+
+  /** Contains logged tags during benchmark runs. */
+  LogTagVector logTags;
 };
 
 #endif

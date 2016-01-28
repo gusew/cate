@@ -559,6 +559,12 @@ void OutputResults::_benchmarkInfo(std::ostringstream& str, const std::string& i
   }
 }
 
+void OutputResults::_logTags(std::ostringstream& str, const LogTagVector& tags) const {
+  for (auto iter = tags.cbegin(); iter != tags.cend(); ++iter) {
+    str << *iter << std::endl;
+  }
+}
+
 void OutputResults::_writeFile(std::ostringstream& str, const std::string& filename) const {
   try {
     std::ofstream outFile(filename, std::ofstream::out);
@@ -708,7 +714,8 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
   std::ostringstream composeData; // for js-data output
   std::ostringstream composePlots; // for js-jqplot configuration
   std::ostringstream composeInfo; // for general key-value info
- 
+  std::ostringstream composeLogTags; // for logged tags during benchmarks
+
   // generate and output html-summary with plots
   _htmlHeader(composeHtml);
   _jsSetTheme(composePlots);
@@ -725,6 +732,9 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
   // generate key-value pairs with general information on benchmark
   _benchmarkInfo(composeInfo, _benchmark->id, eval.benchmarkInfo);
 
+  // write logged tags into stringstream
+  _logTags(composeLogTags, eval.logTags);
+
   // build filenames for summary-files to output
   std::string filePrefix = _resultsDir + _benchmark->id; 
   std::string fileHtml = filePrefix + "_index.html";
@@ -736,6 +746,7 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
   std::string fileCsvMem = filePrefix + "_memory.csv"; 
   // and some machine readable benchmark information
   std::string fileInfo = filePrefix + "_info.csv";
+  std::string fileLogTags = filePrefix + "_logtags.csv";
 
   // write text content to files
   _writeFile(composeHtml, fileHtml);
@@ -768,5 +779,10 @@ void OutputResults::evaluation(const BenchmarkEvaluation& eval) const {
 
   // output general benchmark information to file
   _writeFile(composeInfo, fileInfo);
+
+  // output logged tags to file, if any tags were logged
+  if (eval.logTags.size() > 0) {
+    _writeFile(composeLogTags, fileLogTags);
+  }
 }
 
