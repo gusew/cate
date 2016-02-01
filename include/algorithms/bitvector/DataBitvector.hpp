@@ -264,7 +264,7 @@ struct RangeLessOverlapping {
 template <typename T>
 class DimensionRanges {
   /** Holds all available ranges and their associated bitvectors. */
-  std::multimap<Range<T>, Bitvector, RangeLessOverlapping<T>> _ranges;
+  std::map<Range<T>, Bitvector, RangeLessOverlapping<T>> _ranges;
 
   /** Size of each contained bitvector. */
   unsigned int _bitvectorSize;
