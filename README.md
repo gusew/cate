@@ -165,4 +165,5 @@ For questions or more information on this topic, write me an [email](mailto:wlad
 > [CATE: An Open and Highly Configurable Framework for Performance Evaluation of Packet Classification Algorithms](http://informs-sim.org)
 > W. Gusew, S. Hager, and B. Scheuermann, in Proceedings of Winter Simulation Conference, Huntington Beach, USA, Dec 2015
 >
-> [BibTex](http://ti-publications.informatik.hu-berlin.de/publications/194/?bibtex) · [Presentation Slides](http://amor.cms.hu-berlin.de/~gusewwly/files/cate-wsc15-slides.pdf)
+> [BibTex](http://ti-publications.informatik.hu-berlin.de/publications/194/?bibtex) · [Presentation Slides](http://amor.cms.hu-berlin.de/~gusewwly/files/cate-wsc15-slides.pdf) · [Paper](http://informs-sim.org/wsc15papers/by_area.html#ptrack118)
+
